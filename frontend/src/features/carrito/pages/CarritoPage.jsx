@@ -6,12 +6,22 @@ import { useCarrito } from '../context/CarritoContext'
 export default function CarritoPage() {
   const {
     productos,
+    cargando,
+    error,
     subtotal,
     total,
     actualizarCantidad,
     eliminarProducto,
     vaciarCarrito,
   } = useCarrito()
+
+  if (cargando) {
+    return <main className="carrito-page"><p role="status">Cargando el carrito...</p></main>
+  }
+
+  if (error) {
+    return <main className="carrito-page"><p role="alert">{error}</p></main>
+  }
 
   const formatearPrecio = (precio) =>
     new Intl.NumberFormat('es-AR', {
