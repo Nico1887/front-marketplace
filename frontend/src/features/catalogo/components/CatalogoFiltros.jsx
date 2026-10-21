@@ -1,37 +1,40 @@
 import React from 'react'
 
 /**
- * Panel de filtros del catálogo.
- * Alineado con los parámetros de GET /api/productos del backend:
- * nombre, categoriaId / categoria, precioMin y precioMax.
+ * Panel lateral de filtros del catálogo.
+ * Simula los parámetros de GET /api/productos del backend:
+ * nombre, categoriaId / categoria, precioMin, precioMax y filtros visuales.
  */
 function CatalogoFiltros({
   filtros,
   categorias = [],
   onFiltroChange,
   onLimpiarFiltros,
+  hayFiltrosActivos = false,
 }) {
   const handleChange = (e) => {
-    const { name, value } = e.target
-    onFiltroChange(name, value)
+    const { name, value, type, checked } = e.target
+    onFiltroChange(name, type === 'checkbox' ? checked : value)
   }
 
   return (
     <aside className="catalogo-filtros" aria-label="Filtros de catálogo">
       <div className="catalogo-filtros__header">
         <h2 className="catalogo-filtros__titulo">Filtros</h2>
-        <button
-          type="button"
-          className="catalogo-filtros__limpiar"
-          onClick={onLimpiarFiltros}
-        >
-          Limpiar
-        </button>
+        {hayFiltrosActivos && (
+          <button
+            type="button"
+            className="catalogo-filtros__limpiar"
+            onClick={onLimpiarFiltros}
+          >
+            Limpiar todo
+          </button>
+        )}
       </div>
 
       <div className="catalogo-filtros__grupo">
         <label htmlFor="filtro-nombre" className="catalogo-filtros__label">
-          Buscar por nombre
+          Nombre del producto
         </label>
         <input
           id="filtro-nombre"
@@ -89,9 +92,30 @@ function CatalogoFiltros({
           />
         </div>
       </div>
+
+      <div className="catalogo-filtros__grupo">
+        <span className="catalogo-filtros__label">Disponibilidad y envío</span>
+        <label className="catalogo-filtros__check">
+          <input
+            type="checkbox"
+            name="soloStock"
+            checked={Boolean(filtros.soloStock)}
+            onChange={handleChange}
+          />
+          <span>Solo con stock disponible</span>
+        </label>
+        <label className="catalogo-filtros__check">
+          <input
+            type="checkbox"
+            name="soloEnvioGratis"
+            checked={Boolean(filtros.soloEnvioGratis)}
+            onChange={handleChange}
+          />
+          <span>Envío gratis</span>
+        </label>
+      </div>
     </aside>
   )
 }
 
 export default CatalogoFiltros
-

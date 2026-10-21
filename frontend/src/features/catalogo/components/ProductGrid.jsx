@@ -50,3 +50,4 @@ function ProductGrid({ productos = productosMock, titulo = null }) {
 }
 
 export default ProductGrid
+

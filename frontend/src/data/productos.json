@@ -5,11 +5,20 @@
     "descripcion": "Notebook ultradelgada 14\" Intel Core i7, 16GB RAM, 512GB SSD. Ideal para trabajo profesional.",
     "precio": 1850000,
     "stock": 12,
+    "activo": true,
+    "disponibleParaCarrito": true,
+    "nombreVendedor": "TechStore Oficial",
+    "categoriaId": 1,
     "categoria": "Computación",
     "categorias": ["Computación"],
     "envioGratis": true,
     "compraInternacional": false,
-    "imagen": "https://via.placeholder.com/300x200?text=Notebook"
+    "imagen": "https://via.placeholder.com/300x200?text=Notebook",
+    "imagenPortada": "https://via.placeholder.com/300x200?text=Notebook",
+    "imagenes": [
+      "https://via.placeholder.com/600x400?text=Notebook+Frente",
+      "https://via.placeholder.com/600x400?text=Notebook+Teclado"
+    ]
   },
   {
     "id": 2,
@@ -17,11 +26,20 @@
     "descripcion": "Smartphone 6.1\" chip A17 Pro, cámara triple 48MP, titanio natural. Liberado para cualquier compañía.",
     "precio": 1450000,
     "stock": 25,
+    "activo": true,
+    "disponibleParaCarrito": true,
+    "nombreVendedor": "iMarket Argentina",
+    "categoriaId": 2,
     "categoria": "Celulares",
     "categorias": ["Celulares"],
     "envioGratis": true,
     "compraInternacional": true,
-    "imagen": "https://via.placeholder.com/300x200?text=iPhone"
+    "imagen": "https://via.placeholder.com/300x200?text=iPhone",
+    "imagenPortada": "https://via.placeholder.com/300x200?text=iPhone",
+    "imagenes": [
+      "https://via.placeholder.com/600x400?text=iPhone+15+Pro",
+      "https://via.placeholder.com/600x400?text=iPhone+Camaras"
+    ]
   },
   {
     "id": 3,
@@ -29,11 +47,20 @@
     "descripcion": "Auriculares Bluetooth con cancelación de ruido líder en su clase, 30hs de batería.",
     "precio": 389000,
     "stock": 40,
+    "activo": true,
+    "disponibleParaCarrito": true,
+    "nombreVendedor": "AudioPro UADE",
+    "categoriaId": 3,
     "categoria": "Audio",
     "categorias": ["Audio"],
     "envioGratis": false,
     "compraInternacional": true,
-    "imagen": "https://via.placeholder.com/300x200?text=Auriculares"
+    "imagen": "https://via.placeholder.com/300x200?text=Auriculares",
+    "imagenPortada": "https://via.placeholder.com/300x200?text=Auriculares",
+    "imagenes": [
+      "https://via.placeholder.com/600x400?text=Sony+WH-1000XM5",
+      "https://via.placeholder.com/600x400?text=Sony+Estuche"
+    ]
   },
   {
     "id": 4,
@@ -41,11 +68,19 @@
     "descripcion": "Máquina de café automática con molinillo integrado, pantalla touch y vaporizador de leche.",
     "precio": 620000,
     "stock": 8,
+    "activo": true,
+    "disponibleParaCarrito": true,
+    "nombreVendedor": "Hogar & Café",
+    "categoriaId": 4,
     "categoria": "Electrodomésticos",
     "categorias": ["Electrodomésticos"],
     "envioGratis": true,
     "compraInternacional": false,
-    "imagen": "https://via.placeholder.com/300x200?text=Cafetera"
+    "imagen": "https://via.placeholder.com/300x200?text=Cafetera",
+    "imagenPortada": "https://via.placeholder.com/300x200?text=Cafetera",
+    "imagenes": [
+      "https://via.placeholder.com/600x400?text=Cafetera+Philips"
+    ]
   },
   {
     "id": 5,
@@ -53,11 +88,19 @@
     "descripcion": "Televisor 55 pulgadas QLED 4K UHD, HDR10+, sistema Tizen, control por voz.",
     "precio": 980000,
     "stock": 0,
+    "activo": true,
+    "disponibleParaCarrito": false,
+    "nombreVendedor": "ElectroMundo",
+    "categoriaId": 5,
     "categoria": "Televisores",
     "categorias": ["Televisores"],
     "envioGratis": false,
     "compraInternacional": false,
-    "imagen": "https://via.placeholder.com/300x200?text=SmartTV"
+    "imagen": "https://via.placeholder.com/300x200?text=SmartTV",
+    "imagenPortada": "https://via.placeholder.com/300x200?text=SmartTV",
+    "imagenes": [
+      "https://via.placeholder.com/600x400?text=SmartTV+Samsung+55"
+    ]
   },
   {
     "id": 6,
@@ -65,10 +108,58 @@
     "descripcion": "Teclado inalámbrico mecánico 75% con switches brown retroiluminados, compatible Mac/Windows.",
     "precio": 145000,
     "stock": 60,
+    "activo": true,
+    "disponibleParaCarrito": true,
+    "nombreVendedor": "CustomKeys AR",
+    "categoriaId": 6,
     "categoria": "Periféricos",
     "categorias": ["Periféricos"],
     "envioGratis": true,
     "compraInternacional": true,
-    "imagen": "https://via.placeholder.com/300x200?text=Teclado"
+    "imagen": "https://via.placeholder.com/300x200?text=Teclado",
+    "imagenPortada": "https://via.placeholder.com/300x200?text=Teclado",
+    "imagenes": [
+      "https://via.placeholder.com/600x400?text=Keychron+K2"
+    ]
+  },
+  {
+    "id": 7,
+    "nombre": "Monitor LG UltraGear 27\" IPS 144Hz",
+    "descripcion": "Monitor gamer Full HD 1ms con tecnología FreeSync Premium y bordes ultradelgados.",
+    "precio": 410000,
+    "stock": 15,
+    "activo": true,
+    "disponibleParaCarrito": true,
+    "nombreVendedor": "TechStore Oficial",
+    "categoriaId": 6,
+    "categoria": "Periféricos",
+    "categorias": ["Periféricos", "Computación"],
+    "envioGratis": true,
+    "compraInternacional": false,
+    "imagen": "https://via.placeholder.com/300x200?text=Monitor+LG",
+    "imagenPortada": "https://via.placeholder.com/300x200?text=Monitor+LG",
+    "imagenes": [
+      "https://via.placeholder.com/600x400?text=Monitor+LG+27"
+    ]
+  },
+  {
+    "id": 8,
+    "nombre": "Mouse Inalámbrico Logitech MX Master 3S",
+    "descripcion": "Mouse ergonómico de alta precisión 8000 DPI, clicks silenciosos y rueda electromagnética MagSpeed.",
+    "precio": 135000,
+    "stock": 32,
+    "activo": true,
+    "disponibleParaCarrito": true,
+    "nombreVendedor": "CustomKeys AR",
+    "categoriaId": 6,
+    "categoria": "Periféricos",
+    "categorias": ["Periféricos"],
+    "envioGratis": false,
+    "compraInternacional": false,
+    "imagen": "https://via.placeholder.com/300x200?text=Mouse+MX",
+    "imagenPortada": "https://via.placeholder.com/300x200?text=Mouse+MX",
+    "imagenes": [
+      "https://via.placeholder.com/600x400?text=Logitech+MX+Master+3S"
+    ]
   }
 ]

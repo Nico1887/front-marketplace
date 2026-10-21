@@ -32,3 +32,4 @@ function CategoryCard({ id, nombre, descripcion, icono = '📦', cantidadProduct
 }
 
 export default CategoryCard
+
