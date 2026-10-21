@@ -1,0 +1,8 @@
+{
+  "id": 1,
+  "username": "santiagob",
+  "nombre": "Santiago",
+  "apellido": "Briteez",
+  "email": "santiago@marketplace.com",
+  "roles": ["ROLE_USER"]
+}
