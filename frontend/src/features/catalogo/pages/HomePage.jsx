@@ -3,36 +3,47 @@ import { Link } from 'react-router-dom'
 import Buscador from '../components/Buscador.jsx'
 import CategoryCard from '../components/CategoryCard.jsx'
 import ProductGrid from '../components/ProductGrid.jsx'
-import productosData from '../../../data/productos.json'
-import categoriasData from '../../../data/categorias.json'
+import { useCatalogo } from '../hooks/useCatalogo.js'
 import '../catalogo.css'
+
+const ICONOS_CATEGORIA = {
+  Computación: '💻',
+  Celulares: '📱',
+  Audio: '🎧',
+  Electrodomésticos: '☕',
+  Televisores: '📺',
+  Periféricos: '⌨️',
+}
 
 /**
  * Pantalla de inicio (Home) del Marketplace. Ruta: /
- * Muestra el hero con el buscador principal, la grilla de categorías (CategoryCard)
- * y los productos destacados (ProductGrid + ProductCard).
+ * Consume /data/products.json y /data/categories.json a través de useCatalogo().
  */
 function HomePage() {
+  const { productos, categorias, cargando, error } = useCatalogo()
+
   const categoriasConConteo = useMemo(() => {
-    return categoriasData.map((categoria) => {
-      const cantidadProductos = productosData.filter(
+    return categorias.map((categoria) => {
+      const cantidadProductos = productos.filter(
         (p) =>
-          p.categoria === categoria.nombre ||
-          (Array.isArray(p.categorias) &&
-            p.categorias.includes(categoria.nombre)),
+          p.activo !== false &&
+          Array.isArray(p.categorias) &&
+          p.categorias.includes(categoria.nombre),
       ).length
 
       return {
         ...categoria,
+        icono: ICONOS_CATEGORIA[categoria.nombre] || '📦',
         cantidadProductos,
       }
     })
-  }, [])
+  }, [categorias, productos])
 
   const productosDestacados = useMemo(() => {
-    const disponibles = productosData.filter((p) => p.stock > 0)
-    return (disponibles.length > 0 ? disponibles : productosData).slice(0, 6)
-  }, [])
+    const activos = productos.filter((p) => p.activo !== false)
+    const disponibles = activos.filter((p) => p.disponibleParaCarrito)
+    return (disponibles.length > 0 ? disponibles : activos).slice(0, 6)
+  }, [productos])
 
   return (
     <div className="home-page">
@@ -50,6 +61,13 @@ function HomePage() {
         </div>
       </section>
 
+      {error && (
+        <div className="catalogo-vacio" role="alert">
+          <h2>Error al cargar el catálogo</h2>
+          <p>{error}</p>
+        </div>
+      )}
+
       {/* Sección de Categorías */}
       <section className="home-seccion" aria-labelledby="home-categorias-titulo">
         <div className="home-seccion__encabezado">
@@ -64,18 +82,23 @@ function HomePage() {
           </Link>
         </div>
 
-        <div className="category-grid">
-          {categoriasConConteo.map((categoria) => (
-            <CategoryCard
-              key={categoria.id}
-              id={categoria.id}
-              nombre={categoria.nombre}
-              descripcion={categoria.descripcion}
-              icono={categoria.icono}
-              cantidadProductos={categoria.cantidadProductos}
-            />
-          ))}
-        </div>
+        {cargando ? (
+          <div className="catalogo-vacio">
+            <p>Cargando categorías...</p>
+          </div>
+        ) : (
+          <div className="category-grid">
+            {categoriasConConteo.map((categoria) => (
+              <CategoryCard
+                key={categoria.id}
+                id={categoria.id}
+                nombre={categoria.nombre}
+                icono={categoria.icono}
+                cantidadProductos={categoria.cantidadProductos}
+              />
+            ))}
+          </div>
+        )}
       </section>
 
       {/* Sección de Productos Destacados */}
@@ -92,11 +115,16 @@ function HomePage() {
           </Link>
         </div>
 
-        <ProductGrid productos={productosDestacados} />
+        {cargando ? (
+          <div className="catalogo-vacio">
+            <p>Cargando productos destacados...</p>
+          </div>
+        ) : (
+          <ProductGrid productos={productosDestacados} />
+        )}
       </section>
     </div>
   )
 }
 
 export default HomePage
-

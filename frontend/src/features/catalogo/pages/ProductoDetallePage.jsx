@@ -2,21 +2,17 @@ import React, { useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import ProductoGaleria from '../components/ProductoGaleria.jsx'
 import ProductGrid from '../components/ProductGrid.jsx'
-import productosData from '../../../data/productos.json'
+import { useProducto } from '../hooks/useCatalogo.js'
 import '../catalogo.css'
 
 /**
  * Pantalla de detalle de producto (/producto/:id).
- * Simula la respuesta de GET /api/productos/{id} mostrando galería de imágenes,
- * datos completos, vendedor, categorías, precio, stock y botones de acción visuales.
+ * Consume /data/products.json mediante useProducto(id), simulando GET /api/productos/{id}
+ * con el contrato de ProductoResponse.
  */
 function ProductoDetallePage() {
   const { id } = useParams()
-
-  const producto = useMemo(
-    () => productosData.find((p) => String(p.id) === String(id)) || null,
-    [id],
-  )
+  const { producto, productos, cargando, error } = useProducto(id)
 
   const [cantidad, setCantidad] = useState(1)
   const [avisoVisual, setAvisoVisual] = useState('')
@@ -35,22 +31,50 @@ function ProductoDetallePage() {
 
   const productosRelacionados = useMemo(() => {
     if (!producto) return []
-    const catPrincipal = producto.categoria || producto.categorias?.[0]
-    const mismos = productosData.filter(
+    const catPrincipal = producto.categorias?.[0]
+    const mismos = productos.filter(
       (p) =>
         p.id !== producto.id &&
-        (p.categoria === catPrincipal ||
-          (Array.isArray(p.categorias) && p.categorias.includes(catPrincipal))),
+        p.activo !== false &&
+        Array.isArray(p.categorias) &&
+        p.categorias.includes(catPrincipal),
     )
     if (mismos.length >= 3) return mismos.slice(0, 3)
 
-    const otros = productosData.filter(
-      (p) => p.id !== producto.id && !mismos.some((m) => m.id === p.id),
+    const otros = productos.filter(
+      (p) =>
+        p.id !== producto.id &&
+        p.activo !== false &&
+        !mismos.some((m) => m.id === p.id),
     )
     return [...mismos, ...otros].slice(0, 3)
-  }, [producto])
+  }, [producto, productos])
 
-  if (!producto) {
+  if (cargando) {
+    return (
+      <section className="producto-detalle-page">
+        <div className="catalogo-vacio">
+          <p>Cargando detalle del producto...</p>
+        </div>
+      </section>
+    )
+  }
+
+  if (error) {
+    return (
+      <section className="producto-detalle-page">
+        <div className="catalogo-vacio" role="alert">
+          <h2>Error al cargar el producto</h2>
+          <p>{error}</p>
+          <Link to="/catalogo" className="producto-detalle__volver-btn">
+            ← Volver al catálogo
+          </Link>
+        </div>
+      </section>
+    )
+  }
+
+  if (!producto || producto.activo === false) {
     return (
       <section className="producto-detalle-page">
         <div className="catalogo-vacio">
@@ -69,17 +93,15 @@ function ProductoDetallePage() {
   const categorias =
     Array.isArray(producto.categorias) && producto.categorias.length > 0
       ? producto.categorias
-      : producto.categoria
-        ? [producto.categoria]
-        : ['General']
+      : ['General']
 
   const imagenesGaleria =
     Array.isArray(producto.imagenes) && producto.imagenes.length > 0
       ? producto.imagenes
-      : [producto.imagenPortada || producto.imagen]
+      : [producto.imagenPortada]
 
   const disponible =
-    producto.stock > 0 && producto.disponibleParaCarrito !== false
+    Boolean(producto.disponibleParaCarrito) && producto.stock > 0
 
   const handleAgregarVisual = () => {
     if (!disponible) return
@@ -101,7 +123,6 @@ function ProductoDetallePage() {
 
   return (
     <section className="producto-detalle-page">
-      {/* Migas de pan */}
       <nav className="producto-detalle__breadcrumb" aria-label="Ruta de navegación">
         <Link to="/">Inicio</Link>
         <span>/</span>
@@ -114,7 +135,6 @@ function ProductoDetallePage() {
         <span aria-current="page">{producto.nombre}</span>
       </nav>
 
-      {/* Contenedor principal: Galería + Panel de compra */}
       <div className="producto-detalle__card">
         <ProductoGaleria imagenes={imagenesGaleria} nombre={producto.nombre} />
 
@@ -129,14 +149,6 @@ function ProductoDetallePage() {
                 {cat}
               </Link>
             ))}
-            {producto.envioGratis && (
-              <span className="badge badge--envio">Envío gratis</span>
-            )}
-            {producto.compraInternacional && (
-              <span className="badge badge--internacional">
-                Compra internacional
-              </span>
-            )}
           </div>
 
           <h1 className="producto-detalle__titulo">{producto.nombre}</h1>
@@ -162,7 +174,7 @@ function ProductoDetallePage() {
                 disponible ? 'is-available' : 'is-empty'
               }`}
             >
-              {disponible ? '● Stock disponible' : '● Sin stock disponible'}
+              {disponible ? '● Disponible para carrito' : '● Sin stock disponible'}
             </span>
             {disponible && (
               <span className="producto-detalle__unidades">
@@ -210,7 +222,6 @@ function ProductoDetallePage() {
             </div>
           )}
 
-          {/* Botones de acción visuales */}
           <div className="producto-detalle__acciones">
             <button
               type="button"
@@ -252,16 +263,13 @@ function ProductoDetallePage() {
               <dd>{categorias.join(', ')}</dd>
             </div>
             <div>
-              <dt>Tipo de envío</dt>
-              <dd>
-                {producto.envioGratis ? 'Envío gratis a todo el país' : 'Envío estándar'}
-              </dd>
+              <dt>Estado</dt>
+              <dd>{producto.activo ? 'Activo' : 'Inactivo'}</dd>
             </div>
           </dl>
         </div>
       </div>
 
-      {/* Productos relacionados */}
       {productosRelacionados.length > 0 && (
         <div className="producto-detalle__relacionados">
           <div className="home-seccion__encabezado">

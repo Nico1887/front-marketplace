@@ -3,8 +3,7 @@ import { useSearchParams } from 'react-router-dom'
 import Buscador from '../components/Buscador.jsx'
 import CatalogoFiltros from '../components/CatalogoFiltros.jsx'
 import ProductGrid from '../components/ProductGrid.jsx'
-import productosData from '../../../data/productos.json'
-import categoriasData from '../../../data/categorias.json'
+import { useCatalogo } from '../hooks/useCatalogo.js'
 import '../catalogo.css'
 
 const FILTROS_INICIALES = {
@@ -13,7 +12,6 @@ const FILTROS_INICIALES = {
   precioMin: '',
   precioMax: '',
   soloStock: false,
-  soloEnvioGratis: false,
 }
 
 const OPCIONES_ORDEN = [
@@ -27,12 +25,11 @@ const TAMANO_PAGINA = 6
 
 /**
  * Pantalla de resultados del catálogo (/catalogo).
- * Usa estado local y mock data (productos.json y categorias.json) para simular
- * el comportamiento previsto por los endpoints GET /api/productos y GET /api/categorias,
- * incluyendo búsqueda por nombre, filtro por categoría y rango de precios,
- * ordenamiento visual y paginación.
+ * Consume /data/products.json y /data/categories.json mediante useCatalogo()
+ * para simular el comportamiento de GET /api/productos y GET /api/categorias.
  */
 function CatalogoPage() {
+  const { productos, categorias, cargando, error } = useCatalogo()
   const [searchParams, setSearchParams] = useSearchParams()
 
   const [filtros, setFiltros] = useState(() => ({
@@ -41,7 +38,6 @@ function CatalogoPage() {
     precioMin: searchParams.get('precioMin') || '',
     precioMax: searchParams.get('precioMax') || '',
     soloStock: searchParams.get('soloStock') === 'true',
-    soloEnvioGratis: searchParams.get('soloEnvioGratis') === 'true',
   }))
 
   const [orden, setOrden] = useState(
@@ -49,7 +45,6 @@ function CatalogoPage() {
   )
   const [paginaActual, setPaginaActual] = useState(0)
 
-  // Sincroniza estado local si cambian los query params desde navegación externa (ej. Home)
   useEffect(() => {
     setFiltros({
       nombre: searchParams.get('nombre') || '',
@@ -57,7 +52,6 @@ function CatalogoPage() {
       precioMin: searchParams.get('precioMin') || '',
       precioMax: searchParams.get('precioMax') || '',
       soloStock: searchParams.get('soloStock') === 'true',
-      soloEnvioGratis: searchParams.get('soloEnvioGratis') === 'true',
     })
     setOrden(searchParams.get('orden') || 'nombre-asc')
   }, [searchParams])
@@ -69,7 +63,6 @@ function CatalogoPage() {
     if (nuevosFiltros.precioMin !== '') params.precioMin = nuevosFiltros.precioMin
     if (nuevosFiltros.precioMax !== '') params.precioMax = nuevosFiltros.precioMax
     if (nuevosFiltros.soloStock) params.soloStock = 'true'
-    if (nuevosFiltros.soloEnvioGratis) params.soloEnvioGratis = 'true'
     if (nuevoOrden && nuevoOrden !== 'nombre-asc') params.orden = nuevoOrden
     setSearchParams(params, { replace: true })
   }
@@ -100,17 +93,15 @@ function CatalogoPage() {
       filtros.categoria ||
       filtros.precioMin !== '' ||
       filtros.precioMax !== '' ||
-      filtros.soloStock ||
-      filtros.soloEnvioGratis,
+      filtros.soloStock,
   )
 
-  // Simulación de filtrado y ordenamiento de GET /api/productos
   const productosFiltradosYOrdenados = useMemo(() => {
     const termino = filtros.nombre.trim().toLowerCase()
     const min = filtros.precioMin !== '' ? Number(filtros.precioMin) : null
     const max = filtros.precioMax !== '' ? Number(filtros.precioMax) : null
 
-    const resultado = productosData.filter((producto) => {
+    const resultado = productos.filter((producto) => {
       if (producto.activo === false) return false
 
       if (termino) {
@@ -123,9 +114,8 @@ function CatalogoPage() {
 
       if (filtros.categoria) {
         const coincideCategoria =
-          producto.categoria === filtros.categoria ||
-          (Array.isArray(producto.categorias) &&
-            producto.categorias.includes(filtros.categoria))
+          Array.isArray(producto.categorias) &&
+          producto.categorias.includes(filtros.categoria)
         if (!coincideCategoria) return false
       }
 
@@ -137,11 +127,7 @@ function CatalogoPage() {
         return false
       }
 
-      if (filtros.soloStock && !(producto.stock > 0)) {
-        return false
-      }
-
-      if (filtros.soloEnvioGratis && !producto.envioGratis) {
+      if (filtros.soloStock && !producto.disponibleParaCarrito) {
         return false
       }
 
@@ -161,9 +147,8 @@ function CatalogoPage() {
           return a.nombre.localeCompare(b.nombre, 'es')
       }
     })
-  }, [filtros, orden])
+  }, [productos, filtros, orden])
 
-  // Simulación de objeto Page<ProductoListadoResponse> del backend
   const totalElements = productosFiltradosYOrdenados.length
   const totalPages = Math.max(1, Math.ceil(totalElements / TAMANO_PAGINA))
   const paginaSegura = Math.min(paginaActual, totalPages - 1)
@@ -191,14 +176,13 @@ function CatalogoPage() {
       <div className="catalogo-layout">
         <CatalogoFiltros
           filtros={filtros}
-          categorias={categoriasData}
+          categorias={categorias}
           onFiltroChange={handleFiltroChange}
           onLimpiarFiltros={handleLimpiarFiltros}
           hayFiltrosActivos={hayFiltrosActivos}
         />
 
         <div className="catalogo-resultados">
-          {/* Barra superior de búsqueda rápida y ordenamiento visual */}
           <div className="catalogo-toolbar">
             <Buscador
               key={filtros.nombre}
@@ -226,7 +210,6 @@ function CatalogoPage() {
             </div>
           </div>
 
-          {/* Chips de filtros aplicados */}
           {hayFiltrosActivos && (
             <div className="catalogo-chips" aria-label="Filtros aplicados">
               {filtros.nombre && (
@@ -271,25 +254,26 @@ function CatalogoPage() {
                   className="catalogo-chip"
                   onClick={() => handleFiltroChange('soloStock', false)}
                 >
-                  Con stock <span>×</span>
-                </button>
-              )}
-              {filtros.soloEnvioGratis && (
-                <button
-                  type="button"
-                  className="catalogo-chip"
-                  onClick={() => handleFiltroChange('soloEnvioGratis', false)}
-                >
-                  Envío gratis <span>×</span>
+                  Disponibles <span>×</span>
                 </button>
               )}
             </div>
           )}
 
-          <ProductGrid productos={productosPaginados} titulo={null} />
+          {error ? (
+            <div className="catalogo-vacio" role="alert">
+              <h2>Error al cargar productos</h2>
+              <p>{error}</p>
+            </div>
+          ) : cargando ? (
+            <div className="catalogo-vacio">
+              <p>Cargando productos...</p>
+            </div>
+          ) : (
+            <ProductGrid productos={productosPaginados} titulo={null} />
+          )}
 
-          {/* Paginación simulando Page<ProductoListadoResponse> */}
-          {totalElements > TAMANO_PAGINA && (
+          {!cargando && totalElements > TAMANO_PAGINA && (
             <nav
               className="catalogo-paginacion"
               aria-label="Paginación de productos"

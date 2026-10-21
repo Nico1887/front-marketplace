@@ -55,3 +55,4 @@ function ProductoGaleria({ imagenes = [], nombre = 'Producto' }) {
 }
 
 export default ProductoGaleria
+

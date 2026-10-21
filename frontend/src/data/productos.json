@@ -2,172 +2,61 @@
   {
     "id": 1,
     "nombre": "Notebook Lenovo ThinkPad X1 Carbon",
-    "descripcion": "Notebook ultradelgada 14\" Intel Core i7, 16GB RAM, 512GB SSD. Chasis de fibra de carbono ultrarresistente, batería de larga duración y teclado retroiluminado. Ideal para trabajo profesional y desarrollo.",
+    "descripcion": "Notebook ultradelgada 14\" Intel Core i7, 16GB RAM, 512GB SSD. Ideal para trabajo profesional.",
     "precio": 1850000,
     "stock": 12,
-    "activo": true,
-    "disponibleParaCarrito": true,
-    "nombreVendedor": "TechStore Oficial",
-    "categoriaId": 1,
-    "categoria": "Computación",
-    "categorias": ["Computación"],
     "envioGratis": true,
     "compraInternacional": false,
-    "imagen": "https://via.placeholder.com/300x200?text=Notebook",
-    "imagenPortada": "https://via.placeholder.com/300x200?text=Notebook",
-    "imagenes": [
-      "https://via.placeholder.com/640x440?text=ThinkPad+X1+-+Frente",
-      "https://via.placeholder.com/640x440?text=ThinkPad+X1+-+Teclado",
-      "https://via.placeholder.com/640x440?text=ThinkPad+X1+-+Puertos"
-    ]
+    "imagen": "https://via.placeholder.com/300x200?text=Notebook"
   },
   {
     "id": 2,
     "nombre": "Apple iPhone 15 Pro 256GB",
-    "descripcion": "Smartphone 6.1\" con diseño en titanio de calidad aeroespacial, chip A17 Pro, sistema de cámaras Pro de 48MP y conector USB-C. Liberado para cualquier compañía.",
+    "descripcion": "Smartphone 6.1\" chip A17 Pro, cámara triple 48MP, titanio natural. Liberado para cualquier compañía.",
     "precio": 1450000,
     "stock": 25,
-    "activo": true,
-    "disponibleParaCarrito": true,
-    "nombreVendedor": "iMarket Argentina",
-    "categoriaId": 2,
-    "categoria": "Celulares",
-    "categorias": ["Celulares"],
     "envioGratis": true,
     "compraInternacional": true,
-    "imagen": "https://via.placeholder.com/300x200?text=iPhone",
-    "imagenPortada": "https://via.placeholder.com/300x200?text=iPhone",
-    "imagenes": [
-      "https://via.placeholder.com/640x440?text=iPhone+15+Pro+-+Frente",
-      "https://via.placeholder.com/640x440?text=iPhone+15+Pro+-+Camaras",
-      "https://via.placeholder.com/640x440?text=iPhone+15+Pro+-+Perfil"
-    ]
+    "imagen": "https://via.placeholder.com/300x200?text=iPhone"
   },
   {
     "id": 3,
     "nombre": "Auriculares Sony WH-1000XM5",
-    "descripcion": "Auriculares inalámbricos Bluetooth con cancelación de ruido líder en la industria con 8 micrófonos, hasta 30 horas de batería y carga rápida USB-PD.",
+    "descripcion": "Auriculares Bluetooth con cancelación de ruido líder en su clase, 30hs de batería.",
     "precio": 389000,
     "stock": 40,
-    "activo": true,
-    "disponibleParaCarrito": true,
-    "nombreVendedor": "AudioPro UADE",
-    "categoriaId": 3,
-    "categoria": "Audio",
-    "categorias": ["Audio"],
     "envioGratis": false,
     "compraInternacional": true,
-    "imagen": "https://via.placeholder.com/300x200?text=Auriculares",
-    "imagenPortada": "https://via.placeholder.com/300x200?text=Auriculares",
-    "imagenes": [
-      "https://via.placeholder.com/640x440?text=Sony+WH-1000XM5+-+Vista+1",
-      "https://via.placeholder.com/640x440?text=Sony+WH-1000XM5+-+Estuche",
-      "https://via.placeholder.com/640x440?text=Sony+WH-1000XM5+-+Detalle"
-    ]
+    "imagen": "https://via.placeholder.com/300x200?text=Auriculares"
   },
   {
     "id": 4,
     "nombre": "Cafetera Espresso Philips 2200",
-    "descripcion": "Máquina de café espresso superautomática con molinillo 100% cerámico integrado de 12 niveles, pantalla táctil intuitiva y espumador de leche clásico.",
+    "descripcion": "Máquina de café automática con molinillo integrado, pantalla touch y vaporizador de leche.",
     "precio": 620000,
     "stock": 8,
-    "activo": true,
-    "disponibleParaCarrito": true,
-    "nombreVendedor": "Hogar & Café",
-    "categoriaId": 4,
-    "categoria": "Electrodomésticos",
-    "categorias": ["Electrodomésticos"],
     "envioGratis": true,
     "compraInternacional": false,
-    "imagen": "https://via.placeholder.com/300x200?text=Cafetera",
-    "imagenPortada": "https://via.placeholder.com/300x200?text=Cafetera",
-    "imagenes": [
-      "https://via.placeholder.com/640x440?text=Cafetera+Philips+-+Frente",
-      "https://via.placeholder.com/640x440?text=Cafetera+Philips+-+Panel+Touch"
-    ]
+    "imagen": "https://via.placeholder.com/300x200?text=Cafetera"
   },
   {
     "id": 5,
     "nombre": "Smart TV Samsung 55\" 4K QLED",
-    "descripcion": "Televisor 55 pulgadas QLED 4K UHD con tecnología Quantum Dot (100% volumen de color), procesador Quantum Lite 4K, HDR10+ y sistema operativo Tizen.",
+    "descripcion": "Televisor 55 pulgadas QLED 4K UHD, HDR10+, sistema Tizen, control por voz.",
     "precio": 980000,
     "stock": 0,
-    "activo": true,
-    "disponibleParaCarrito": false,
-    "nombreVendedor": "ElectroMundo",
-    "categoriaId": 5,
-    "categoria": "Televisores",
-    "categorias": ["Televisores"],
     "envioGratis": false,
     "compraInternacional": false,
-    "imagen": "https://via.placeholder.com/300x200?text=SmartTV",
-    "imagenPortada": "https://via.placeholder.com/300x200?text=SmartTV",
-    "imagenes": [
-      "https://via.placeholder.com/640x440?text=Samsung+QLED+55+-+Frente",
-      "https://via.placeholder.com/640x440?text=Samsung+QLED+55+-+Control+Solar"
-    ]
+    "imagen": "https://via.placeholder.com/300x200?text=SmartTV"
   },
   {
     "id": 6,
     "nombre": "Teclado Mecánico Keychron K2",
-    "descripcion": "Teclado inalámbrico mecánico formato 75% (84 teclas) con switches Gateron G Pro Brown táctiles, retroiluminación LED y compatibilidad nativa con macOS y Windows.",
+    "descripcion": "Teclado inalámbrico mecánico 75% con switches brown retroiluminados, compatible Mac/Windows.",
     "precio": 145000,
     "stock": 60,
-    "activo": true,
-    "disponibleParaCarrito": true,
-    "nombreVendedor": "CustomKeys AR",
-    "categoriaId": 6,
-    "categoria": "Periféricos",
-    "categorias": ["Periféricos"],
     "envioGratis": true,
     "compraInternacional": true,
-    "imagen": "https://via.placeholder.com/300x200?text=Teclado",
-    "imagenPortada": "https://via.placeholder.com/300x200?text=Teclado",
-    "imagenes": [
-      "https://via.placeholder.com/640x440?text=Keychron+K2+-+Superior",
-      "https://via.placeholder.com/640x440?text=Keychron+K2+-+Switches"
-    ]
-  },
-  {
-    "id": 7,
-    "nombre": "Monitor LG UltraGear 27\" IPS 144Hz",
-    "descripcion": "Monitor gamer Full HD con panel IPS de 27 pulgadas, tiempo de respuesta de 1ms (GtG), frecuencia de actualización de 144Hz y soporte AMD FreeSync Premium.",
-    "precio": 410000,
-    "stock": 15,
-    "activo": true,
-    "disponibleParaCarrito": true,
-    "nombreVendedor": "TechStore Oficial",
-    "categoriaId": 6,
-    "categoria": "Periféricos",
-    "categorias": ["Periféricos", "Computación"],
-    "envioGratis": true,
-    "compraInternacional": false,
-    "imagen": "https://via.placeholder.com/300x200?text=Monitor+LG",
-    "imagenPortada": "https://via.placeholder.com/300x200?text=Monitor+LG",
-    "imagenes": [
-      "https://via.placeholder.com/640x440?text=Monitor+LG+27+-+Frente",
-      "https://via.placeholder.com/640x440?text=Monitor+LG+27+-+Base"
-    ]
-  },
-  {
-    "id": 8,
-    "nombre": "Mouse Inalámbrico Logitech MX Master 3S",
-    "descripcion": "Mouse ergonómico inalámbrico con sensor óptico Darkfield de 8000 DPI que funciona sobre cristal, clicks silenciosos Quiet Click y rueda electromagnética MagSpeed.",
-    "precio": 135000,
-    "stock": 32,
-    "activo": true,
-    "disponibleParaCarrito": true,
-    "nombreVendedor": "CustomKeys AR",
-    "categoriaId": 6,
-    "categoria": "Periféricos",
-    "categorias": ["Periféricos"],
-    "envioGratis": false,
-    "compraInternacional": false,
-    "imagen": "https://via.placeholder.com/300x200?text=Mouse+MX",
-    "imagenPortada": "https://via.placeholder.com/300x200?text=Mouse+MX",
-    "imagenes": [
-      "https://via.placeholder.com/640x440?text=Logitech+MX+Master+3S+-+Vista+1",
-      "https://via.placeholder.com/640x440?text=Logitech+MX+Master+3S+-+Lateral"
-    ]
+    "imagen": "https://via.placeholder.com/300x200?text=Teclado"
   }
 ]

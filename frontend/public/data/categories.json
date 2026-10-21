@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "nombre": "Computación"
+  },
+  {
+    "id": 2,
+    "nombre": "Celulares"
+  },
+  {
+    "id": 3,
+    "nombre": "Audio"
+  },
+  {
+    "id": 4,
+    "nombre": "Electrodomésticos"
+  },
+  {
+    "id": 5,
+    "nombre": "Televisores"
+  },
+  {
+    "id": 6,
+    "nombre": "Periféricos"
+  }
+]

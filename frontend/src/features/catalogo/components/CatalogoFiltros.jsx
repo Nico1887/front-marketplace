@@ -3,7 +3,7 @@ import React from 'react'
 /**
  * Panel lateral de filtros del catálogo.
  * Simula los parámetros de GET /api/productos del backend:
- * nombre, categoriaId / categoria, precioMin, precioMax y filtros visuales.
+ * nombre, categoriaId / categoria, precioMin, precioMax y disponibilidad.
  */
 function CatalogoFiltros({
   filtros,
@@ -94,7 +94,7 @@ function CatalogoFiltros({
       </div>
 
       <div className="catalogo-filtros__grupo">
-        <span className="catalogo-filtros__label">Disponibilidad y envío</span>
+        <span className="catalogo-filtros__label">Disponibilidad</span>
         <label className="catalogo-filtros__check">
           <input
             type="checkbox"
@@ -102,16 +102,7 @@ function CatalogoFiltros({
             checked={Boolean(filtros.soloStock)}
             onChange={handleChange}
           />
-          <span>Solo con stock disponible</span>
-        </label>
-        <label className="catalogo-filtros__check">
-          <input
-            type="checkbox"
-            name="soloEnvioGratis"
-            checked={Boolean(filtros.soloEnvioGratis)}
-            onChange={handleChange}
-          />
-          <span>Envío gratis</span>
+          <span>Solo disponibles para carrito</span>
         </label>
       </div>
     </aside>
