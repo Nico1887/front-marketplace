@@ -1,0 +1,134 @@
+[
+  {
+    "id": 1,
+    "nombre": "Notebook Lenovo ThinkPad X1 Carbon",
+    "descripcion": "Notebook ultradelgada 14\" Intel Core i7, 16GB RAM, 512GB SSD. Chasis de fibra de carbono ultrarresistente, batería de larga duración y teclado retroiluminado. Ideal para trabajo profesional y desarrollo.",
+    "precio": 1850000.00,
+    "stock": 12,
+    "activo": true,
+    "nombreVendedor": "TechStore Oficial",
+    "categorias": ["Computación"],
+    "imagenes": [
+      "https://via.placeholder.com/640x440?text=ThinkPad+X1+-+Frente",
+      "https://via.placeholder.com/640x440?text=ThinkPad+X1+-+Teclado",
+      "https://via.placeholder.com/640x440?text=ThinkPad+X1+-+Puertos"
+    ],
+    "imagenPortada": "https://via.placeholder.com/640x440?text=ThinkPad+X1+-+Frente",
+    "disponibleParaCarrito": true
+  },
+  {
+    "id": 2,
+    "nombre": "Apple iPhone 15 Pro 256GB",
+    "descripcion": "Smartphone 6.1\" con diseño en titanio de calidad aeroespacial, chip A17 Pro, sistema de cámaras Pro de 48MP y conector USB-C. Liberado para cualquier compañía.",
+    "precio": 1450000.00,
+    "stock": 25,
+    "activo": true,
+    "nombreVendedor": "iMarket Argentina",
+    "categorias": ["Celulares"],
+    "imagenes": [
+      "https://via.placeholder.com/640x440?text=iPhone+15+Pro+-+Frente",
+      "https://via.placeholder.com/640x440?text=iPhone+15+Pro+-+Camaras",
+      "https://via.placeholder.com/640x440?text=iPhone+15+Pro+-+Perfil"
+    ],
+    "imagenPortada": "https://via.placeholder.com/640x440?text=iPhone+15+Pro+-+Frente",
+    "disponibleParaCarrito": true
+  },
+  {
+    "id": 3,
+    "nombre": "Auriculares Sony WH-1000XM5",
+    "descripcion": "Auriculares inalámbricos Bluetooth con cancelación de ruido líder en la industria con 8 micrófonos, hasta 30 horas de batería y carga rápida USB-PD.",
+    "precio": 389000.00,
+    "stock": 40,
+    "activo": true,
+    "nombreVendedor": "AudioPro UADE",
+    "categorias": ["Audio"],
+    "imagenes": [
+      "https://via.placeholder.com/640x440?text=Sony+WH-1000XM5+-+Vista+1",
+      "https://via.placeholder.com/640x440?text=Sony+WH-1000XM5+-+Estuche",
+      "https://via.placeholder.com/640x440?text=Sony+WH-1000XM5+-+Detalle"
+    ],
+    "imagenPortada": "https://via.placeholder.com/640x440?text=Sony+WH-1000XM5+-+Vista+1",
+    "disponibleParaCarrito": true
+  },
+  {
+    "id": 4,
+    "nombre": "Cafetera Espresso Philips 2200",
+    "descripcion": "Máquina de café espresso superautomática con molinillo 100% cerámico integrado de 12 niveles, pantalla táctil intuitiva y espumador de leche clásico.",
+    "precio": 620000.00,
+    "stock": 8,
+    "activo": true,
+    "nombreVendedor": "Hogar & Café",
+    "categorias": ["Electrodomésticos"],
+    "imagenes": [
+      "https://via.placeholder.com/640x440?text=Cafetera+Philips+-+Frente",
+      "https://via.placeholder.com/640x440?text=Cafetera+Philips+-+Panel+Touch"
+    ],
+    "imagenPortada": "https://via.placeholder.com/640x440?text=Cafetera+Philips+-+Frente",
+    "disponibleParaCarrito": true
+  },
+  {
+    "id": 5,
+    "nombre": "Smart TV Samsung 55\" 4K QLED",
+    "descripcion": "Televisor 55 pulgadas QLED 4K UHD con tecnología Quantum Dot (100% volumen de color), procesador Quantum Lite 4K, HDR10+ y sistema operativo Tizen.",
+    "precio": 980000.00,
+    "stock": 0,
+    "activo": true,
+    "nombreVendedor": "ElectroMundo",
+    "categorias": ["Televisores"],
+    "imagenes": [
+      "https://via.placeholder.com/640x440?text=Samsung+QLED+55+-+Frente",
+      "https://via.placeholder.com/640x440?text=Samsung+QLED+55+-+Control+Solar"
+    ],
+    "imagenPortada": "https://via.placeholder.com/640x440?text=Samsung+QLED+55+-+Frente",
+    "disponibleParaCarrito": false
+  },
+  {
+    "id": 6,
+    "nombre": "Teclado Mecánico Keychron K2",
+    "descripcion": "Teclado inalámbrico mecánico formato 75% (84 teclas) con switches Gateron G Pro Brown táctiles, retroiluminación LED y compatibilidad nativa con macOS y Windows.",
+    "precio": 145000.00,
+    "stock": 60,
+    "activo": true,
+    "nombreVendedor": "CustomKeys AR",
+    "categorias": ["Periféricos"],
+    "imagenes": [
+      "https://via.placeholder.com/640x440?text=Keychron+K2+-+Superior",
+      "https://via.placeholder.com/640x440?text=Keychron+K2+-+Switches"
+    ],
+    "imagenPortada": "https://via.placeholder.com/640x440?text=Keychron+K2+-+Superior",
+    "disponibleParaCarrito": true
+  },
+  {
+    "id": 7,
+    "nombre": "Monitor LG UltraGear 27\" IPS 144Hz",
+    "descripcion": "Monitor gamer Full HD con panel IPS de 27 pulgadas, tiempo de respuesta de 1ms (GtG), frecuencia de actualización de 144Hz y soporte AMD FreeSync Premium.",
+    "precio": 410000.00,
+    "stock": 15,
+    "activo": true,
+    "nombreVendedor": "TechStore Oficial",
+    "categorias": ["Periféricos", "Computación"],
+    "imagenes": [
+      "https://via.placeholder.com/640x440?text=Monitor+LG+27+-+Frente",
+      "https://via.placeholder.com/640x440?text=Monitor+LG+27+-+Base"
+    ],
+    "imagenPortada": "https://via.placeholder.com/640x440?text=Monitor+LG+27+-+Frente",
+    "disponibleParaCarrito": true
+  },
+  {
+    "id": 8,
+    "nombre": "Mouse Inalámbrico Logitech MX Master 3S",
+    "descripcion": "Mouse ergonómico inalámbrico con sensor óptico Darkfield de 8000 DPI que funciona sobre cristal, clicks silenciosos Quiet Click y rueda electromagnética MagSpeed.",
+    "precio": 135000.00,
+    "stock": 32,
+    "activo": true,
+    "nombreVendedor": "CustomKeys AR",
+    "categorias": ["Periféricos"],
+    "imagenes": [
+      "https://via.placeholder.com/640x440?text=Logitech+MX+Master+3S+-+Vista+1",
+      "https://via.placeholder.com/640x440?text=Logitech+MX+Master+3S+-+Lateral"
+    ],
+    "imagenPortada": "https://via.placeholder.com/640x440?text=Logitech+MX+Master+3S+-+Vista+1",
+    "disponibleParaCarrito": true
+  }
+]
+
