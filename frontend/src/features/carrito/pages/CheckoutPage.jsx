@@ -18,7 +18,7 @@ function formatearPrecio(precio) {
 }
 
 export default function CheckoutPage() {
-  const { productos, total } = useCarrito()
+  const { productos, total, cargando, error } = useCarrito()
   const [paso, setPaso] = useState(1)
   const [direccion, setDireccion] = useState(null)
   const [metodoPago, setMetodoPago] = useState('visa')
@@ -36,6 +36,14 @@ export default function CheckoutPage() {
     })
     setPaso(2)
     window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
+  if (cargando) {
+    return <main className="checkout-page"><p role="status">Cargando el carrito...</p></main>
+  }
+
+  if (error) {
+    return <main className="checkout-page"><p role="alert">{error}</p></main>
   }
 
   if (productos.length === 0) {
