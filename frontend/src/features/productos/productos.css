@@ -1,0 +1,300 @@
+/* Estilos de la feature Gestión de productos. Usa las variables globales de styles.css. */
+
+.vendedor-pagina {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 1rem 0 2rem;
+}
+
+.vendedor-pagina__cabecera {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.vendedor-pagina h1 {
+  font-size: 1.6rem;
+  line-height: 1.2;
+}
+
+.vendedor-pagina__bajada {
+  color: var(--color-neutro);
+  margin-top: 0.25rem;
+}
+
+/* Estados de carga / error / vacío */
+.vendedor-estado {
+  max-width: 1080px;
+  margin: 2rem auto;
+  padding: 2rem;
+  text-align: center;
+  background: #fff;
+  border: 1px solid var(--color-borde);
+  border-radius: 12px;
+  color: var(--color-neutro);
+}
+
+.vendedor-estado--error {
+  color: #b91c1c;
+  border-color: #fecaca;
+  background: #fef2f2;
+}
+
+/* Aviso de acción realizada */
+.vendedor-aviso {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding: 0.7rem 1rem;
+  border: 1px solid #bbf7d0;
+  border-radius: 10px;
+  background: #f0fdf4;
+  color: #166534;
+  font-size: 0.9rem;
+}
+
+.vendedor-aviso button {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+/* Resumen */
+.vendedor-resumen {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  margin: 1.5rem 0;
+  background: var(--color-borde);
+  border: 1px solid var(--color-borde);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.vendedor-resumen__dato {
+  background: #fff;
+  padding: 0.9rem 1.25rem;
+}
+
+.vendedor-resumen dt {
+  font-size: 0.8rem;
+  color: var(--color-neutro);
+}
+
+.vendedor-resumen dd {
+  font-size: 1.3rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Tabla de publicaciones */
+.vendedor-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border: 1px solid var(--color-borde);
+  border-radius: 12px;
+  overflow: hidden;
+  font-size: 0.95rem;
+}
+
+.vendedor-tabla th,
+.vendedor-tabla td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--color-borde);
+}
+
+.vendedor-tabla thead th {
+  background: #f9fafb;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-neutro);
+}
+
+.vendedor-tabla tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.vendedor-tabla .vendedor-tabla__num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.vendedor-tabla__producto {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  min-width: 0;
+}
+
+.vendedor-tabla__producto strong {
+  display: block;
+  font-weight: 600;
+}
+
+.vendedor-tabla__imagen {
+  flex: 0 0 auto;
+  width: 64px;
+  height: 48px;
+  border-radius: 6px;
+  object-fit: cover;
+  background: #f3f4f6;
+}
+
+.vendedor-tabla__categorias {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--color-neutro);
+}
+
+.vendedor-tabla__fila--inactiva .vendedor-tabla__producto,
+.vendedor-tabla__fila--inactiva .vendedor-tabla__num {
+  opacity: 0.55;
+}
+
+.vendedor-tabla .vendedor-tabla__acciones {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.vendedor-tabla__acciones .vendedor-boton + .vendedor-boton {
+  margin-left: 0.4rem;
+}
+
+.vendedor-oculto {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Botones */
+.vendedor-boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 0.35rem 0.8rem;
+  border: 1px solid var(--color-borde);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--color-texto);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.vendedor-boton:hover {
+  border-color: #9ca3af;
+}
+
+.vendedor-boton:disabled {
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+.vendedor-boton--primario {
+  border-color: var(--color-primario);
+  background: var(--color-primario);
+  color: #fff;
+}
+
+.vendedor-boton--primario:hover {
+  border-color: #1d4ed8;
+  background: #1d4ed8;
+}
+
+.vendedor-boton--peligro {
+  color: #b42318;
+}
+
+.vendedor-boton--peligro:hover {
+  border-color: #fca5a5;
+}
+
+.vendedor-boton--peligro-lleno {
+  border-color: #b42318;
+  background: #b42318;
+  color: #fff;
+}
+
+.vendedor-boton--peligro-lleno:hover {
+  border-color: #7f1d1d;
+  background: #7f1d1d;
+}
+
+/* Modal */
+.vendedor-modal__fondo {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: rgba(17, 24, 39, 0.45);
+}
+
+.vendedor-modal {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-height: calc(100vh - 2rem);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  outline: none;
+}
+
+.vendedor-modal--chico {
+  max-width: 460px;
+}
+
+.vendedor-modal--grande {
+  max-width: 720px;
+}
+
+.vendedor-modal__cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--color-borde);
+}
+
+.vendedor-modal__cabecera h2 {
+  font-size: 1.15rem;
+}
+
+.vendedor-modal__cerrar {
+  border: 0;
+  background: transparent;
+  color: var(--color-neutro);
+  cursor: pointer;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.vendedor-modal__cuerpo {
+  padding: 1.25rem;
+  overflow-y: auto;
+}
+
+.vendedor-modal__acciones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.6rem;
+  margin-top: 1.25rem;
+}
