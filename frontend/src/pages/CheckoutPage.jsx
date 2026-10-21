@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { QRCodeSVG } from 'qrcode.react'
-import carrito from '../data/carrito.json'
+import { useCarrito } from '../context/CarritoContext'
 
 const metodosPago = [
   { id: 'visa', nombre: 'Visa' },
@@ -18,6 +18,7 @@ function formatearPrecio(precio) {
 }
 
 export default function CheckoutPage() {
+  const { productos, total } = useCarrito()
   const [paso, setPaso] = useState(1)
   const [direccion, setDireccion] = useState(null)
   const [metodoPago, setMetodoPago] = useState('visa')
@@ -37,7 +38,7 @@ export default function CheckoutPage() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
-  if (carrito.productos.length === 0) {
+  if (productos.length === 0) {
     return (
       <main className="checkout-page">
         <section className="checkout-empty">
@@ -254,11 +255,11 @@ export default function CheckoutPage() {
               <p className="checkout-eyebrow">TU SELECCIÓN</p>
               <h2 id="checkout-order-title">Resumen del pedido</h2>
             </div>
-            <span>{carrito.productos.length}</span>
+            <span>{productos.length}</span>
           </div>
 
           <div className="checkout-order__products">
-            {carrito.productos.map((producto) => (
+            {productos.map((producto) => (
               <article className="checkout-order__product" key={producto.nombre}>
                 <img src={producto.imagen} alt="" />
                 <div>
@@ -284,7 +285,7 @@ export default function CheckoutPage() {
 
           <div className="checkout-order__total">
             <span>Total</span>
-            <strong>{formatearPrecio(carrito.total)}</strong>
+            <strong>{formatearPrecio(total)}</strong>
           </div>
           <p className="checkout-order__shipping">Envío gratis</p>
         </aside>

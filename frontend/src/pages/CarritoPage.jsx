@@ -1,16 +1,24 @@
 import CartItem from '../components/CartItem'
 import CartSummary from '../components/CartSummary'
-import carrito from '../data/carrito.json'
+import { Link } from 'react-router-dom'
+import { useCarrito } from '../context/CarritoContext'
 
 export default function CarritoPage() {
+  const {
+    productos,
+    subtotal,
+    total,
+    actualizarCantidad,
+    eliminarProducto,
+    vaciarCarrito,
+  } = useCarrito()
+
   const formatearPrecio = (precio) =>
     new Intl.NumberFormat('es-AR', {
       style: 'currency',
       currency: 'ARS',
       maximumFractionDigits: 0,
     }).format(precio)
-
-  const subtotal = carrito.productos.reduce((acumulado, producto) => acumulado + producto.subtotal, 0)
 
   return (
     <main className="carrito-page">
@@ -20,12 +28,19 @@ export default function CarritoPage() {
           <h1>Carrito</h1>
           <p className="carrito-intro">Revisá tu selección antes de finalizar la compra.</p>
         </div>
-        <span className="carrito-count">{carrito.productos.length} productos</span>
+        <div className="carrito-header__actions">
+          <span className="carrito-count">{productos.length} productos</span>
+          {productos.length > 0 && (
+            <button className="carrito-clear" type="button" onClick={vaciarCarrito}>
+              Vaciar carrito
+            </button>
+          )}
+        </div>
       </header>
 
       <div className="carrito-layout">
         <section className="carrito-products" aria-label="Productos en el carrito">
-          {carrito.productos.map((producto) => (
+          {productos.length > 0 ? productos.map((producto) => (
             <CartItem
               key={producto.nombre}
               imagen={producto.imagen}
@@ -33,16 +48,26 @@ export default function CarritoPage() {
               precio={formatearPrecio(producto.precio)}
               cantidad={producto.cantidad}
               subtotal={formatearPrecio(producto.subtotal)}
+              onCantidadChange={(cantidad) => actualizarCantidad(producto.nombre, cantidad)}
+              onEliminar={() => eliminarProducto(producto.nombre)}
             />
-          ))}
+          )) : (
+            <div className="carrito-empty">
+              <h2>Tu carrito está vacío</h2>
+              <p>Cuando agregues productos, los vas a encontrar acá.</p>
+              <Link to="/catalogo">Volver al catálogo</Link>
+            </div>
+          )}
         </section>
 
-        <CartSummary
-          cantidadProductos={`${carrito.productos.length} productos`}
-          subtotal={formatearPrecio(subtotal)}
-          envio="Gratis"
-          total={formatearPrecio(carrito.total)}
-        />
+        {productos.length > 0 && (
+          <CartSummary
+            cantidadProductos={`${productos.length} productos`}
+            subtotal={formatearPrecio(subtotal)}
+            envio="Gratis"
+            total={formatearPrecio(total)}
+          />
+        )}
       </div>
     </main>
   )

@@ -1,4 +1,12 @@
-export default function CartItem({ imagen, nombre, precio, cantidad, subtotal }) {
+export default function CartItem({
+  imagen,
+  nombre,
+  precio,
+  cantidad,
+  subtotal,
+  onCantidadChange,
+  onEliminar,
+}) {
   return (
     <article className="cart-item">
       <img className="cart-item__image" src={imagen} alt={nombre} />
@@ -12,7 +20,24 @@ export default function CartItem({ imagen, nombre, precio, cantidad, subtotal })
         <div className="cart-item__footer">
           <div className="cart-item__quantity" aria-label={`Cantidad: ${cantidad}`}>
             <span>Cantidad</span>
-            <strong>{cantidad}</strong>
+            <div className="cart-item__quantity-control">
+              <button
+                type="button"
+                onClick={() => onCantidadChange(cantidad - 1)}
+                disabled={cantidad <= 1}
+                aria-label={`Disminuir cantidad de ${nombre}`}
+              >
+                −
+              </button>
+              <strong aria-live="polite">{cantidad}</strong>
+              <button
+                type="button"
+                onClick={() => onCantidadChange(cantidad + 1)}
+                aria-label={`Aumentar cantidad de ${nombre}`}
+              >
+                +
+              </button>
+            </div>
           </div>
           <div className="cart-item__subtotal">
             <span>Subtotal</span>
@@ -20,6 +45,14 @@ export default function CartItem({ imagen, nombre, precio, cantidad, subtotal })
           </div>
         </div>
       </div>
+      <button
+        className="cart-item__remove"
+        type="button"
+        onClick={onEliminar}
+        aria-label={`Eliminar ${nombre} del carrito`}
+      >
+        Eliminar
+      </button>
     </article>
   )
 }
