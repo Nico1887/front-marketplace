@@ -58,3 +58,4 @@ export function useProducto(id) {
     productos.find((p) => String(p.id) === String(id)) ?? null
   return { producto, productos, cargando, error }
 }
+
