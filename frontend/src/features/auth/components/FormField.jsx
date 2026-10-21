@@ -5,15 +5,17 @@ import ErrorMessage from './ErrorMessage'
  *
  * Props:
  *  - name, label, type, value, onChange, onBlur
- *  - error:        string (si hay, el campo se marca en rojo)
+ *  - error:        string (mensaje debajo del campo; también lo marca en rojo)
+ *  - invalido:     boolean (marca en rojo sin mensaje propio)
  *  - autoComplete: string (opcional)
  *  - placeholder:  string (opcional)
  */
-function FormField({ name, label, type = 'text', value, onChange, onBlur, error, autoComplete, placeholder }) {
+function FormField({ name, label, type = 'text', value, onChange, onBlur, error, invalido, autoComplete, placeholder }) {
   const errorId = `${name}-error`
+  const conError = Boolean(error) || Boolean(invalido)
 
   return (
-    <div className={`auth-campo${error ? ' auth-campo--error' : ''}`}>
+    <div className={`auth-campo${conError ? ' auth-campo--error' : ''}`}>
       <label htmlFor={name}>{label}</label>
       <input
         id={name}
@@ -24,7 +26,7 @@ function FormField({ name, label, type = 'text', value, onChange, onBlur, error,
         onBlur={onBlur}
         autoComplete={autoComplete}
         placeholder={placeholder}
-        aria-invalid={Boolean(error)}
+        aria-invalid={conError}
         aria-describedby={error ? errorId : undefined}
       />
       <ErrorMessage id={errorId}>{error}</ErrorMessage>

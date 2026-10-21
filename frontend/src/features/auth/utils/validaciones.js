@@ -33,6 +33,18 @@ function validarPassword(valor) {
 }
 
 /**
+ * Valida los campos del login (solo que no estén vacíos y el email tenga formato).
+ * No exige el largo de la contraseña: eso lo decide el backend al autenticar.
+ */
+export function validarLogin(valores) {
+  const errores = {
+    email: validarEmail(valores.email),
+    password: valores.password ? '' : 'La contraseña es obligatoria.',
+  }
+  return Object.fromEntries(Object.entries(errores).filter(([, mensaje]) => mensaje))
+}
+
+/**
  * Valida los campos del registro. Devuelve un mapa campo -> mensaje
  * (solo incluye los campos con error), igual que `validationErrors` del backend.
  */

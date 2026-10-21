@@ -10,6 +10,7 @@ import ErrorMessage from './ErrorMessage'
  *  - valores:      { campo: valor }
  *  - errores:      { campo: mensaje }
  *  - errorGeneral: string (error del formulario completo, por ejemplo credenciales inválidas)
+ *  - marcarCampos: boolean (marca todos los campos en rojo, sin mensaje propio)
  *  - exito:        string (mensaje de confirmación)
  *  - textoBoton:   string
  *  - enviando:     boolean
@@ -23,6 +24,7 @@ function AuthForm({
   valores,
   errores,
   errorGeneral,
+  marcarCampos,
   exito,
   textoBoton,
   enviando,
@@ -48,6 +50,7 @@ function AuthForm({
             {...campo}
             value={valores[campo.name]}
             error={errores[campo.name]}
+            invalido={marcarCampos}
             onChange={onChange}
             onBlur={onBlur}
           />
