@@ -4,7 +4,7 @@ import Footer from './layouts/Footer';
 import NotFound from './pages/NotFound';
 import CarritoPage from './pages/CarritoPage';
 import CheckoutPage from './pages/CheckoutPage';
-import { HomePage, CatalogoPage } from './features/catalogo';
+import { HomePage, CatalogoPage, ProductoDetallePage } from './features/catalogo';
 import { CarritoProvider } from './context/CarritoContext';
 
 // Placeholders temporales hasta que el equipo integre sus features
@@ -22,7 +22,7 @@ function App() {
             {/* Rutas de Enzo (Catálogo) */}
             <Route path="/" element={<HomePage />} />
             <Route path="/catalogo" element={<CatalogoPage />} />
-            <Route path="/producto/:id" element={<Placeholder title="Detalle del Producto" />} />
+            <Route path="/producto/:id" element={<ProductoDetallePage />} />
 
             {/* Rutas de Santiago (Auth / Usuario) */}
             <Route path="/login" element={<Placeholder title="Login" />} />
