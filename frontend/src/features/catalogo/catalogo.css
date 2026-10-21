@@ -1,4 +1,193 @@
-/* Estilos de la feature Catálogo. Usa las variables globales de styles.css. */
+/* Estilos de la feature Catálogo (Home y Catálogo). Usa las variables globales de styles.css. */
+
+/* ---------- Home Page ---------- */
+
+.home-page {
+  width: min(1160px, 100%);
+  margin: 0 auto;
+  padding: 1.5rem 1rem 4rem;
+  display: grid;
+  gap: 3rem;
+}
+
+.home-hero {
+  padding: clamp(2rem, 4vw, 3.25rem);
+  border: 1px solid var(--color-borde);
+  border-radius: 18px;
+  background: linear-gradient(135deg, #ffffff 0%, #eff6ff 100%);
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.06);
+}
+
+.home-hero__contenido {
+  max-width: 680px;
+}
+
+.home-hero__titulo {
+  color: var(--color-texto);
+  font-size: clamp(1.85rem, 4.2vw, 2.65rem);
+  line-height: 1.15;
+  margin-bottom: 0.75rem;
+}
+
+.home-hero__subtitulo {
+  color: var(--color-neutro);
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ---------- Buscador ---------- */
+
+.catalogo-buscador {
+  display: flex;
+  gap: 0.65rem;
+  width: 100%;
+  max-width: 560px;
+}
+
+.catalogo-buscador__input {
+  flex: 1;
+  min-height: 46px;
+  padding: 0 1rem;
+  border: 1px solid var(--color-borde);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--color-texto);
+  font: inherit;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.catalogo-buscador__input:focus {
+  border-color: var(--color-primario);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.14);
+}
+
+.catalogo-buscador__boton {
+  min-height: 46px;
+  padding: 0 1.4rem;
+  border: 1px solid var(--color-primario);
+  border-radius: 10px;
+  background: var(--color-primario);
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.92rem;
+  font-weight: 600;
+  transition: background 0.15s ease;
+}
+
+.catalogo-buscador__boton:hover {
+  background: #1d4ed8;
+}
+
+/* ---------- Secciones Home ---------- */
+
+.home-seccion {
+  display: grid;
+  gap: 1.35rem;
+}
+
+.home-seccion__encabezado {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.home-seccion__titulo {
+  color: var(--color-texto);
+  font-size: clamp(1.35rem, 3vw, 1.75rem);
+  line-height: 1.2;
+}
+
+.home-seccion__link {
+  color: var(--color-primario);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.home-seccion__link:hover {
+  text-decoration: underline;
+}
+
+/* ---------- CategoryCard & CategoryGrid ---------- */
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.category-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.15rem 1.25rem;
+  border: 1px solid var(--color-borde);
+  border-radius: 14px;
+  background: #fff;
+  color: inherit;
+  text-decoration: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-primario);
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.1);
+}
+
+.category-card__icono {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  flex: 0 0 48px;
+  border-radius: 12px;
+  background: #eff6ff;
+  font-size: 1.5rem;
+}
+
+.category-card__cuerpo {
+  flex: 1;
+  min-width: 0;
+}
+
+.category-card__nombre {
+  font-size: 1rem;
+  color: var(--color-texto);
+  margin-bottom: 0.2rem;
+}
+
+.category-card__descripcion {
+  color: var(--color-neutro);
+  font-size: 0.82rem;
+  line-height: 1.35;
+  margin-bottom: 0.35rem;
+}
+
+.category-card__cantidad {
+  display: inline-block;
+  color: var(--color-primario);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.category-card__flecha {
+  color: var(--color-neutro);
+  font-size: 1.1rem;
+  transition: transform 0.15s ease, color 0.15s ease;
+}
+
+.category-card:hover .category-card__flecha {
+  transform: translateX(3px);
+  color: var(--color-primario);
+}
+
+/* ---------- CatalogoPage ---------- */
 
 .catalogo-page {
   width: min(1160px, 100%);
@@ -15,7 +204,7 @@
 }
 
 .catalogo-eyebrow {
-  margin-bottom: 0.45rem;
+  margin-bottom: 0.35rem;
   color: var(--color-neutro);
   font-size: 0.7rem;
   font-weight: 700;
@@ -148,6 +337,8 @@
   font-size: 0.9rem;
 }
 
+/* ---------- ProductCard & ProductGrid ---------- */
+
 .producto-card__link-imagen {
   display: block;
 }
@@ -171,20 +362,38 @@
   letter-spacing: 0.06em;
 }
 
+.producto-card__ver-detalle {
+  display: inline-block;
+  margin-top: 0.85rem;
+  color: var(--color-primario);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.producto-card__ver-detalle:hover {
+  text-decoration: underline;
+}
+
 @media (max-width: 820px) {
   .catalogo-layout {
     grid-template-columns: minmax(0, 1fr);
   }
 }
 
-@media (max-width: 480px) {
-  .catalogo-page {
-    padding: 1.5rem 0.75rem 2.5rem;
+@media (max-width: 540px) {
+  .catalogo-buscador {
+    flex-direction: column;
   }
 
-  .catalogo-header {
+  .home-page,
+  .catalogo-page {
+    padding: 1.25rem 0.75rem 2.5rem;
+  }
+
+  .catalogo-header,
+  .home-seccion__encabezado {
     flex-direction: column;
     align-items: flex-start;
   }
 }
-

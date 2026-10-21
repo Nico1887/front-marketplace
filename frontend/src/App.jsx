@@ -4,7 +4,7 @@ import Footer from './layouts/Footer';
 import NotFound from './pages/NotFound';
 import CarritoPage from './pages/CarritoPage';
 import CheckoutPage from './pages/CheckoutPage';
-import { CatalogoPage } from './features/catalogo';
+import { HomePage, CatalogoPage } from './features/catalogo';
 import { CarritoProvider } from './context/CarritoContext';
 
 // Placeholders temporales hasta que el equipo integre sus features
@@ -20,7 +20,7 @@ function App() {
           <main style={{ flex: 1, padding: '1rem' }}>
             <Routes>
             {/* Rutas de Enzo (Catálogo) */}
-            <Route path="/" element={<Placeholder title="Home / Destacados" />} />
+            <Route path="/" element={<HomePage />} />
             <Route path="/catalogo" element={<CatalogoPage />} />
             <Route path="/producto/:id" element={<Placeholder title="Detalle del Producto" />} />
 

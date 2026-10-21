@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "nombre": "Computación",
+    "descripcion": "Notebooks, equipos de escritorio y componentes",
+    "icono": "💻"
+  },
+  {
+    "id": 2,
+    "nombre": "Celulares",
+    "descripcion": "Smartphones liberados y accesorios móviles",
+    "icono": "📱"
+  },
+  {
+    "id": 3,
+    "nombre": "Audio",
+    "descripcion": "Auriculares inalámbricos, parlantes y sonido Hi-Fi",
+    "icono": "🎧"
+  },
+  {
+    "id": 4,
+    "nombre": "Electrodomésticos",
+    "descripcion": "Cafeteras, pequeños electros y equipamiento del hogar",
+    "icono": "☕"
+  },
+  {
+    "id": 5,
+    "nombre": "Televisores",
+    "descripcion": "Smart TVs 4K QLED, OLED y proyectores",
+    "icono": "📺"
+  },
+  {
+    "id": 6,
+    "nombre": "Periféricos",
+    "descripcion": "Teclados mecánicos, mouses y monitores",
+    "icono": "⌨️"
+  }
+]

@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import CatalogoFiltros from '../components/CatalogoFiltros.jsx'
-import ProductoList from '../components/ProductoList.jsx'
+import ProductGrid from '../components/ProductGrid.jsx'
 import productosData from '../../../data/productos.json'
 import '../catalogo.css'
 
@@ -15,7 +15,7 @@ const FILTROS_INICIALES = {
 /**
  * Pantalla principal del catálogo público (/catalogo).
  * Organiza el encabezado del catálogo, el panel de filtros (CatalogoFiltros)
- * y la grilla de resultados (ProductoList).
+ * y la grilla de resultados (ProductGrid).
  */
 function CatalogoPage() {
   const [searchParams, setSearchParams] = useSearchParams()
@@ -108,7 +108,7 @@ function CatalogoPage() {
         />
 
         <div className="catalogo-resultados">
-          <ProductoList productos={productosFiltrados} titulo={null} />
+          <ProductGrid productos={productosFiltrados} titulo={null} />
         </div>
       </div>
     </section>
@@ -116,4 +116,3 @@ function CatalogoPage() {
 }
 
 export default CatalogoPage
-
