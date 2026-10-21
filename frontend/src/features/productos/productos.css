@@ -548,3 +548,143 @@
   border-color: var(--color-primario);
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
 }
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 768px) {
+  .vendedor-resumen {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* La tabla completa necesita ~870px: debajo de eso cada publicación pasa a ser una card */
+@media (max-width: 960px) {
+  .vendedor-tabla,
+  .vendedor-tabla tbody,
+  .vendedor-tabla tr,
+  .vendedor-tabla td {
+    display: block;
+  }
+
+  .vendedor-tabla {
+    background: transparent;
+    border: none;
+  }
+
+  .vendedor-tabla thead {
+    display: none;
+  }
+
+  .vendedor-tabla tbody tr {
+    margin-bottom: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: #fff;
+    border: 1px solid var(--color-borde);
+    border-radius: 12px;
+  }
+
+  .vendedor-tabla tbody td,
+  .vendedor-tabla tbody tr:last-child td {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.45rem 0;
+    border-bottom: 1px dashed var(--color-borde);
+  }
+
+  .vendedor-tabla td[data-label]::before {
+    content: attr(data-label);
+    color: var(--color-neutro);
+    font-size: 0.85rem;
+  }
+
+  .vendedor-tabla tbody td.vendedor-tabla__producto {
+    justify-content: flex-start;
+    padding-top: 0;
+  }
+
+  .vendedor-tabla__imagen {
+    width: 72px;
+    height: 54px;
+  }
+
+  .vendedor-tabla tbody td.vendedor-tabla__acciones {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.4rem;
+    padding: 0.7rem 0 0;
+    border-bottom: none;
+  }
+
+  .vendedor-tabla__acciones .vendedor-boton + .vendedor-boton {
+    margin-left: 0;
+  }
+}
+
+/* Mobile: botones más grandes al tacto y el modal ocupa la pantalla */
+@media (max-width: 640px) {
+  .vendedor-pagina h1 {
+    font-size: 1.35rem;
+  }
+
+  .vendedor-pagina__cabecera {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .vendedor-pagina__cabecera .vendedor-boton {
+    min-height: 42px;
+  }
+
+  .vendedor-tabla__acciones .vendedor-boton {
+    flex: 1 1 auto;
+    min-height: 38px;
+  }
+
+  .vendedor-stock button,
+  .vendedor-stock input {
+    height: 34px;
+  }
+
+  .vendedor-stock button {
+    width: 34px;
+  }
+
+  .vendedor-modal__fondo {
+    align-items: end;
+    padding: 0;
+  }
+
+  .vendedor-modal,
+  .vendedor-modal--chico,
+  .vendedor-modal--grande {
+    max-width: none;
+    max-height: 92vh;
+    border-radius: 14px 14px 0 0;
+  }
+
+  .vendedor-form__grilla {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .vendedor-imagenes__agregar {
+    flex-wrap: wrap;
+  }
+
+  .vendedor-imagenes__agregar input {
+    flex-basis: 100%;
+  }
+
+  .vendedor-imagenes__agregar .vendedor-boton {
+    flex: 1 1 auto;
+  }
+
+  .vendedor-modal__acciones {
+    flex-direction: column-reverse;
+  }
+
+  .vendedor-modal__acciones .vendedor-boton {
+    min-height: 42px;
+  }
+}
