@@ -1,0 +1,308 @@
+/* Estilos de la feature Órdenes. Usa las variables globales de styles.css. */
+
+.ordenes-pagina {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1rem 0 2rem;
+}
+
+.ordenes-pagina h1 {
+  font-size: 1.6rem;
+  line-height: 1.2;
+}
+
+.ordenes-pagina__subtitulo {
+  font-size: 1.15rem;
+  margin: 2rem 0 0.75rem;
+}
+
+/* Estados de carga / error / vacío */
+.ordenes-estado {
+  max-width: 960px;
+  margin: 2rem auto;
+  padding: 2rem;
+  text-align: center;
+  background: #fff;
+  border: 1px solid var(--color-borde);
+  border-radius: 12px;
+  color: var(--color-neutro);
+}
+
+.ordenes-estado--error {
+  color: #b91c1c;
+  border-color: #fecaca;
+  background: #fef2f2;
+}
+
+.ordenes-estado a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: var(--color-primario);
+}
+
+/* Resumen de la orden */
+.orden-resumen {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--color-borde);
+  border: 1px solid var(--color-borde);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-top: 1.5rem;
+}
+
+.orden-resumen__dato {
+  background: #fff;
+  padding: 1rem 1.25rem;
+}
+
+.orden-resumen dt {
+  font-size: 0.8rem;
+  color: var(--color-neutro);
+}
+
+.orden-resumen dd {
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.orden-resumen__dato--total dd {
+  color: var(--color-primario);
+}
+
+/* Tabla (ítems de una orden y listado de órdenes) */
+.ordenes-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border: 1px solid var(--color-borde);
+  border-radius: 12px;
+  overflow: hidden;
+  font-size: 0.95rem;
+}
+
+.ordenes-tabla th,
+.ordenes-tabla td {
+  padding: 0.85rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--color-borde);
+}
+
+.ordenes-tabla thead th {
+  background: #f9fafb;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-neutro);
+}
+
+.ordenes-tabla tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.ordenes-tabla tfoot th,
+.ordenes-tabla tfoot td {
+  border-top: 2px solid var(--color-borde);
+  border-bottom: none;
+  font-weight: 700;
+}
+
+.ordenes-tabla .ordenes-tabla__num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.ordenes-tabla a {
+  color: var(--color-primario);
+}
+
+/* Botones / acciones */
+.ordenes-acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.ordenes-boton {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  border: 1px solid var(--color-primario);
+  background: var(--color-primario);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+}
+
+.ordenes-boton:hover {
+  filter: brightness(1.08);
+}
+
+.ordenes-boton--secundario {
+  background: #fff;
+  color: var(--color-primario);
+}
+
+/* Compra confirmada */
+.orden-confirmada__cabecera {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.orden-confirmada__cabecera p {
+  color: var(--color-neutro);
+}
+
+.orden-confirmada__icono {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: #dcfce7;
+  color: var(--color-envio);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* Historial */
+.ordenes-pagina__bajada {
+  color: var(--color-neutro);
+  margin: 0.25rem 0 1.25rem;
+}
+
+.ordenes-tabla .ordenes-tabla__accion {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.visualmente-oculto {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Detalle de orden */
+.ordenes-volver {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  color: var(--color-primario);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.ordenes-volver:hover {
+  text-decoration: underline;
+}
+
+.ordenes-nota {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: var(--color-neutro);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 768px) {
+  .orden-resumen {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile: cada fila de la tabla pasa a ser una card apilada */
+@media (max-width: 640px) {
+  .ordenes-pagina h1 {
+    font-size: 1.35rem;
+  }
+
+  .orden-confirmada__cabecera {
+    align-items: flex-start;
+  }
+
+  .ordenes-tabla,
+  .ordenes-tabla tbody,
+  .ordenes-tabla tfoot,
+  .ordenes-tabla tr,
+  .ordenes-tabla td,
+  .ordenes-tabla th {
+    display: block;
+  }
+
+  .ordenes-tabla {
+    background: transparent;
+    border: none;
+  }
+
+  .ordenes-tabla thead {
+    display: none;
+  }
+
+  .ordenes-tabla tbody tr {
+    background: #fff;
+    border: 1px solid var(--color-borde);
+    border-radius: 12px;
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .ordenes-tabla tbody td,
+  .ordenes-tabla tbody tr:last-child td {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.4rem 0;
+    border-bottom: 1px dashed var(--color-borde);
+    text-align: right;
+  }
+
+  .ordenes-tabla tbody td:last-child {
+    border-bottom: none;
+  }
+
+  .ordenes-tabla td[data-label]::before {
+    content: attr(data-label);
+    color: var(--color-neutro);
+    font-size: 0.85rem;
+    text-align: left;
+  }
+
+  .ordenes-tabla .ordenes-tabla__accion {
+    justify-content: flex-end;
+    padding-top: 0.6rem;
+  }
+
+  .ordenes-tabla tfoot tr {
+    display: flex;
+    justify-content: space-between;
+    background: #fff;
+    border: 1px solid var(--color-borde);
+    border-radius: 12px;
+    padding: 0.85rem 1rem;
+  }
+
+  .ordenes-tabla tfoot th,
+  .ordenes-tabla tfoot td {
+    border: none;
+    padding: 0;
+  }
+
+  .ordenes-acciones {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 340px) {
+  .orden-resumen {
+    grid-template-columns: 1fr;
+  }
+}
