@@ -1,4 +1,8 @@
+import { useNavigate } from "react-router-dom"
+
 export default function CartSummary({ cantidadProductos, subtotal, envio, total }) {
+  const navigate = useNavigate()
+
   return (
     <aside className="cart-summary" aria-labelledby="cart-summary-title">
       <div className="cart-summary__header">
@@ -24,7 +28,7 @@ export default function CartSummary({ cantidadProductos, subtotal, envio, total 
         <strong>{total}</strong>
       </div>
 
-      <button className="cart-summary__button" type="button">
+      <button className="cart-summary__button" type="button" onClick={() => navigate('/checkout')}>
         Finalizar compra
         <span aria-hidden="true">→</span>
       </button>

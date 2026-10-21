@@ -3,6 +3,7 @@ import Navbar from './layouts/Navbar';
 import Footer from './layouts/Footer';
 import NotFound from './pages/NotFound';
 import CarritoPage from './pages/CarritoPage';
+import CheckoutPage from './pages/CheckoutPage';
 
 // Placeholders temporales hasta que el equipo integre sus features
 const Placeholder = ({ title }) => <div style={{ padding: '2rem' }}><h2>{title}</h2><p>Pantalla en desarrollo...</p></div>;
@@ -30,7 +31,7 @@ function App() {
 
             {/* Rutas de Tobías y Agustín (Carrito, Checkout y Órdenes) */}
             <Route path="/carrito" element={<CarritoPage />} />
-            <Route path="/checkout" element={<Placeholder title="Checkout" />} />
+            <Route path="/checkout" element={<CheckoutPage />} />
             <Route path="/ordenes" element={<Placeholder title="Historial de Órdenes" />} />
             <Route path="/ordenes/:id" element={<Placeholder title="Detalle de Orden" />} />
 
