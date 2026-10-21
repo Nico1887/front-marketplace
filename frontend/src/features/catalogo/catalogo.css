@@ -1077,3 +1077,21 @@
     width: 100%;
   }
 }
+
+/* Mobile pequeño (≤ 380px) */
+@media (max-width: 380px) {
+  .catalogo-filtros__rango {
+    grid-template-columns: 1fr;
+  }
+
+  .catalogo-orden {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .catalogo-orden__select {
+    max-width: none;
+    width: 100%;
+  }
+}
+
