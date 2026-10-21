@@ -3,8 +3,30 @@ import Navbar from './layouts/Navbar';
 import Footer from './layouts/Footer';
 import NotFound from './pages/NotFound';
 
-// Placeholders temporales hasta que el equipo integre sus features
-const Placeholder = ({ title }) => <div style={{ padding: '2rem' }}><h2>{title}</h2><p>Pantalla en desarrollo...</p></div>;
+//Catálogo
+import HomePage from './features/catalogo/pages/HomePage';
+import CatalogoPage from './features/catalogo/pages/CatalogoPage';
+import ProductoDetallePage from './features/catalogo/pages/ProductoDetallePage';
+
+//Gestión Vendedor
+import VendedorProductosPage from './features/productos/pages/VendedorProductosPage';
+
+// Carrito y Checkout
+import CarritoPage from './features/carrito/pages/CarritoPage';
+import CheckoutPage from './features/carrito/pages/CheckoutPage';
+
+//Órdenes
+import OrdenesHistorialPage from './features/ordenes/pages/OrdenesHistorialPage';
+import OrdenDetallePage from './features/ordenes/pages/OrdenDetallePage';
+import OrdenConfirmadaPage from './features/ordenes/pages/OrdenConfirmadaPage';
+
+//(Auth)
+const Placeholder = ({ title }) => (
+  <div style={{ padding: '2rem', textAlign: 'center' }}>
+    <h2>{title}</h2>
+    <p>Pantalla en desarrollo por Santiago...</p>
+  </div>
+);
 
 function App() {
   return (
@@ -14,24 +36,27 @@ function App() {
         
         <main style={{ flex: 1, padding: '1rem' }}>
           <Routes>
-            {/* Rutas de Enzo (Catálogo) */}
-            <Route path="/" element={<Placeholder title="Home / Destacados" />} />
-            <Route path="/catalogo" element={<Placeholder title="Resultados y Filtros" />} />
-            <Route path="/producto/:id" element={<Placeholder title="Detalle del Producto" />} />
+            {/*(Catálogo) */}
+            <Route path="/" element={<HomePage />} />
+            <Route path="/catalogo" element={<CatalogoPage />} />
+            <Route path="/producto/:id" element={<ProductoDetallePage />} />
 
-            {/* Rutas de Santiago (Auth / Usuario) */}
+            {/*(Auth / Usuario) */}
             <Route path="/login" element={<Placeholder title="Login" />} />
             <Route path="/registro" element={<Placeholder title="Registro" />} />
             <Route path="/perfil" element={<Placeholder title="Mi Perfil" />} />
 
-            {/* Rutas de Ramiro (Vendedor) */}
-            <Route path="/vendedor" element={<Placeholder title="Gestión del Vendedor" />} />
+            {/*(Gestión Vendedor) */}
+            <Route path="/vendedor" element={<VendedorProductosPage />} />
 
-            {/* Rutas de Tobías y Agustín (Carrito, Checkout y Órdenes) */}
-            <Route path="/carrito" element={<Placeholder title="Mi Carrito" />} />
-            <Route path="/checkout" element={<Placeholder title="Checkout" />} />
-            <Route path="/ordenes" element={<Placeholder title="Historial de Órdenes" />} />
-            <Route path="/ordenes/:id" element={<Placeholder title="Detalle de Orden" />} />
+            {/*(Carrito y Checkout) */}
+            <Route path="/carrito" element={<CarritoPage />} />
+            <Route path="/checkout" element={<CheckoutPage />} />
+
+            {/*(Órdenes) */}
+            <Route path="/ordenes" element={<OrdenesHistorialPage />} />
+            <Route path="/ordenes/:id" element={<OrdenDetallePage />} />
+            <Route path="/ordenes/confirmada" element={<OrdenConfirmadaPage />} />
 
             {/* Manejo de Error 404 */}
             <Route path="*" element={<NotFound />} />
