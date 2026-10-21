@@ -1,14 +1,24 @@
 import { useEffect, useReducer, useState } from 'react'
+import { aProductoResponse } from '../utils/contrato'
 
 // Mocks de la feature. Al integrar el backend se reemplazan por las llamadas
 // reales: la forma de los datos es la misma (ProductoResponse / CategoriaResponse).
 const PRODUCTOS_URL = '/data/vendedor-productos.json'
 const CATEGORIAS_URL = '/data/vendedor-categorias.json'
 
+// Vendedor logueado del mock (usuario jperez de data.sql).
+const NOMBRE_VENDEDOR = 'Juan'
+
 function productosReducer(productos, accion) {
   switch (accion.tipo) {
     case 'cargar':
       return accion.productos
+    // Simula POST /api/productos: el backend asigna el id y lo deja activo.
+    case 'crear': {
+      const id = productos.reduce((max, p) => Math.max(max, p.id), 0) + 1
+      const base = { id, activo: true, nombreVendedor: NOMBRE_VENDEDOR, imagenes: [] }
+      return [...productos, aProductoResponse(accion.request, accion.categorias, base)]
+    }
     // Simula DELETE /api/productos/{id}: baja lógica, el producto queda inactivo.
     case 'darDeBaja':
       return productos.map((p) => (p.id === accion.id ? { ...p, activo: false } : p))
@@ -48,7 +58,8 @@ export function useProductosVendedor() {
     }
   }, [])
 
+  const crearProducto = (request) => dispatch({ tipo: 'crear', request, categorias })
   const darDeBaja = (id) => dispatch({ tipo: 'darDeBaja', id })
 
-  return { productos, categorias, cargando, error, darDeBaja }
+  return { productos, categorias, cargando, error, crearProducto, darDeBaja }
 }

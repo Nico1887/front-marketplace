@@ -1,10 +1,19 @@
-const formatoPrecio = new Intl.NumberFormat('es-AR', {
+const formatoEntero = new Intl.NumberFormat('es-AR', {
   style: 'currency',
   currency: 'ARS',
   minimumFractionDigits: 0,
+  maximumFractionDigits: 0,
 })
 
-export const formatearPrecio = (valor) => formatoPrecio.format(valor)
+const formatoConDecimales = new Intl.NumberFormat('es-AR', {
+  style: 'currency',
+  currency: 'ARS',
+  minimumFractionDigits: 2,
+})
+
+// $ 145.000 si es entero, $ 25.999,90 si tiene centavos.
+export const formatearPrecio = (valor) =>
+  (Number.isInteger(valor) ? formatoEntero : formatoConDecimales).format(valor)
 
 /**
  * Estado visible de una publicación a partir de ProductoResponse.
