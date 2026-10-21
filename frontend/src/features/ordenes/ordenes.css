@@ -171,3 +171,23 @@
   font-size: 1.5rem;
   font-weight: 700;
 }
+
+/* Historial */
+.ordenes-pagina__bajada {
+  color: var(--color-neutro);
+  margin: 0.25rem 0 1.25rem;
+}
+
+.ordenes-tabla .ordenes-tabla__accion {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.visualmente-oculto {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
