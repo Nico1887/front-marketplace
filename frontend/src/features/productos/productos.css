@@ -501,3 +501,50 @@
   flex: 1;
   min-width: 0;
 }
+
+/* Control de stock */
+.vendedor-stock {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.vendedor-stock button {
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--color-borde);
+  border-radius: 7px;
+  background: #fff;
+  color: var(--color-texto);
+  cursor: pointer;
+  font: inherit;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.vendedor-stock button:hover:not(:disabled) {
+  border-color: #9ca3af;
+}
+
+.vendedor-stock button:disabled {
+  color: #d1d5db;
+  cursor: not-allowed;
+}
+
+.vendedor-stock input {
+  width: 3.2rem;
+  height: 28px;
+  border: 1px solid var(--color-borde);
+  border-radius: 7px;
+  color: var(--color-texto);
+  font: inherit;
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}
+
+.vendedor-stock input:focus {
+  outline: none;
+  border-color: var(--color-primario);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}

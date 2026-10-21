@@ -27,6 +27,23 @@ function productosReducer(productos, accion) {
     // Simula DELETE /api/productos/{id}: baja lógica, el producto queda inactivo.
     case 'darDeBaja':
       return productos.map((p) => (p.id === accion.id ? { ...p, activo: false } : p))
+    // Simula PATCH /api/productos/{id}/stock?cantidad= (acepta 0).
+    case 'actualizarStock':
+      return productos.map((p) =>
+        p.id === accion.id
+          ? { ...p, stock: accion.cantidad, disponibleParaCarrito: accion.cantidad > 0 }
+          : p
+      )
+    // Simula POST /api/productos/{id}/imagenes
+    case 'agregarImagen':
+      return productos.map((p) =>
+        p.id === accion.id ? { ...p, imagenes: [...p.imagenes, accion.url] } : p
+      )
+    // Simula DELETE /api/productos/{id}/imagenes/{imagenId}
+    case 'quitarImagen':
+      return productos.map((p) =>
+        p.id === accion.id ? { ...p, imagenes: p.imagenes.filter((_, i) => i !== accion.indice) } : p
+      )
     default:
       throw new Error(`Acción desconocida: ${accion.tipo}`)
   }
@@ -66,6 +83,20 @@ export function useProductosVendedor() {
   const crearProducto = (request) => dispatch({ tipo: 'crear', request, categorias })
   const editarProducto = (id, request) => dispatch({ tipo: 'editar', id, request, categorias })
   const darDeBaja = (id) => dispatch({ tipo: 'darDeBaja', id })
+  const actualizarStock = (id, cantidad) => dispatch({ tipo: 'actualizarStock', id, cantidad })
+  const agregarImagen = (id, url) => dispatch({ tipo: 'agregarImagen', id, url })
+  const quitarImagen = (id, indice) => dispatch({ tipo: 'quitarImagen', id, indice })
 
-  return { productos, categorias, cargando, error, crearProducto, editarProducto, darDeBaja }
+  return {
+    productos,
+    categorias,
+    cargando,
+    error,
+    crearProducto,
+    editarProducto,
+    darDeBaja,
+    actualizarStock,
+    agregarImagen,
+    quitarImagen,
+  }
 }
