@@ -23,3 +23,23 @@ export function aProductoResponse(request, categorias, base) {
     disponibleParaCarrito: request.stock > 0,
   }
 }
+
+/**
+ * Valores iniciales del formulario a partir de un ProductoResponse.
+ * ProductoResponse trae nombres de categorías y el request usa ids.
+ */
+export function aValoresFormulario(producto, categorias) {
+  return {
+    nombre: producto.nombre,
+    descripcion: producto.descripcion,
+    // 47999.9 -> "47999,90", igual que el ejemplo del campo
+    precio: Number.isInteger(producto.precio)
+      ? String(producto.precio)
+      : producto.precio.toFixed(2).replace('.', ','),
+    stock: String(producto.stock),
+    categoriaIds: categorias
+      .filter((c) => producto.categorias.includes(c.nombre))
+      .map((c) => c.id),
+    imagenes: producto.imagenes,
+  }
+}

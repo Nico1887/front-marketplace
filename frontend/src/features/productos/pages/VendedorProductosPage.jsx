@@ -5,6 +5,7 @@ import ProductosTabla from '../components/ProductosTabla'
 import MensajeEstado from '../components/MensajeEstado'
 import Modal from '../components/Modal'
 import ProductoForm from '../components/ProductoForm'
+import { aValoresFormulario } from '../utils/contrato'
 import '../productos.css'
 
 /**
@@ -12,8 +13,10 @@ import '../productos.css'
  * Simula POST / PUT / DELETE /api/productos sobre el estado local.
  */
 function VendedorProductosPage() {
-  const { productos, categorias, cargando, error, crearProducto, darDeBaja } = useProductosVendedor()
+  const { productos, categorias, cargando, error, crearProducto, editarProducto, darDeBaja } =
+    useProductosVendedor()
   const [creando, setCreando] = useState(false)
+  const [productoAEditar, setProductoAEditar] = useState(null)
   const [productoABajar, setProductoABajar] = useState(null)
   const [aviso, setAviso] = useState(null)
 
@@ -24,6 +27,12 @@ function VendedorProductosPage() {
     crearProducto(request)
     setAviso(`"${request.nombre}" se publicó correctamente.`)
     setCreando(false)
+  }
+
+  const guardarEdicion = (request) => {
+    editarProducto(productoAEditar.id, request)
+    setAviso(`Los cambios en "${request.nombre}" se guardaron.`)
+    setProductoAEditar(null)
   }
 
   const confirmarBaja = () => {
@@ -56,7 +65,11 @@ function VendedorProductosPage() {
       {productos.length === 0 ? (
         <MensajeEstado tipo="vacio">Todavía no publicaste ningún producto.</MensajeEstado>
       ) : (
-        <ProductosTabla productos={productos} onDarDeBaja={setProductoABajar} />
+        <ProductosTabla
+          productos={productos}
+          onEditar={setProductoAEditar}
+          onDarDeBaja={setProductoABajar}
+        />
       )}
 
       {creando && (
@@ -66,6 +79,22 @@ function VendedorProductosPage() {
             textoGuardar="Publicar"
             onGuardar={guardarNuevo}
             onCancelar={() => setCreando(false)}
+          />
+        </Modal>
+      )}
+
+      {productoAEditar && (
+        <Modal titulo="Editar producto" ancho="grande" onCerrar={() => setProductoAEditar(null)}>
+          <p className="vendedor-form__nota">
+            Las imágenes no se modifican desde este formulario.
+          </p>
+          <ProductoForm
+            categorias={categorias}
+            valoresIniciales={aValoresFormulario(productoAEditar, categorias)}
+            conImagenes={false}
+            textoGuardar="Guardar cambios"
+            onGuardar={guardarEdicion}
+            onCancelar={() => setProductoAEditar(null)}
           />
         </Modal>
       )}

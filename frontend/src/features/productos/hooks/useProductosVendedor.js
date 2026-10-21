@@ -19,6 +19,11 @@ function productosReducer(productos, accion) {
       const base = { id, activo: true, nombreVendedor: NOMBRE_VENDEDOR, imagenes: [] }
       return [...productos, aProductoResponse(accion.request, accion.categorias, base)]
     }
+    // Simula PUT /api/productos/{id}: actualiza los datos, no toca imágenes ni estado.
+    case 'editar':
+      return productos.map((p) =>
+        p.id === accion.id ? aProductoResponse(accion.request, accion.categorias, p) : p
+      )
     // Simula DELETE /api/productos/{id}: baja lógica, el producto queda inactivo.
     case 'darDeBaja':
       return productos.map((p) => (p.id === accion.id ? { ...p, activo: false } : p))
@@ -59,7 +64,8 @@ export function useProductosVendedor() {
   }, [])
 
   const crearProducto = (request) => dispatch({ tipo: 'crear', request, categorias })
+  const editarProducto = (id, request) => dispatch({ tipo: 'editar', id, request, categorias })
   const darDeBaja = (id) => dispatch({ tipo: 'darDeBaja', id })
 
-  return { productos, categorias, cargando, error, crearProducto, darDeBaja }
+  return { productos, categorias, cargando, error, crearProducto, editarProducto, darDeBaja }
 }

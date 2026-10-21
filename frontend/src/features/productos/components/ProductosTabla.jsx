@@ -7,9 +7,10 @@ import { formatearPrecio } from '../utils/formato'
  *
  * Props:
  *  - productos:   ProductoResponse[]
+ *  - onEditar:    (producto) => void
  *  - onDarDeBaja: (producto) => void
  */
-function ProductosTabla({ productos, onDarDeBaja }) {
+function ProductosTabla({ productos, onEditar, onDarDeBaja }) {
   return (
     <table className="vendedor-tabla">
       <thead>
@@ -41,6 +42,9 @@ function ProductosTabla({ productos, onDarDeBaja }) {
             <td data-label="Stock" className="vendedor-tabla__num">{producto.stock}</td>
             <td data-label="Estado"><EstadoProducto producto={producto} /></td>
             <td className="vendedor-tabla__acciones">
+              <button type="button" className="vendedor-boton" onClick={() => onEditar(producto)}>
+                Editar
+              </button>
               {producto.activo && (
                 <button
                   type="button"
