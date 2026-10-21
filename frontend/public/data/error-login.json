@@ -1,0 +1,8 @@
+{
+  "timestamp": "2026-10-21T10:15:30",
+  "status": 401,
+  "error": "Unauthorized",
+  "message": "Email o contraseña incorrectos",
+  "path": "/api/auth/login",
+  "validationErrors": {}
+}
