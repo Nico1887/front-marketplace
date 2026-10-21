@@ -182,11 +182,12 @@ body {
 .carrito-products {
   display: grid;
   gap: 1rem;
+  min-width: 0;
 }
 
 .cart-item {
   display: grid;
-  grid-template-columns: 142px minmax(0, 1fr);
+  grid-template-columns: 142px minmax(0, 1fr) auto;
   gap: 1.25rem;
   padding: 1rem;
   border: 1px solid var(--color-borde);
@@ -259,6 +260,42 @@ body {
   border-radius: 7px;
   color: var(--color-texto);
   font-size: 0.85rem;
+}
+
+.cart-item__quantity-control {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.cart-item__quantity-control button {
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--color-borde);
+  border-radius: 7px;
+  background: #fff;
+  color: var(--color-texto);
+  cursor: pointer;
+  font: inherit;
+  font-size: 1rem;
+}
+
+.cart-item__quantity-control button:disabled {
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+.cart-item__remove {
+  align-self: start;
+  padding: 0.25rem 0.4rem;
+  border: 0;
+  background: transparent;
+  color: #b42318;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.78rem;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .cart-item__subtotal {
@@ -370,6 +407,31 @@ body {
   text-align: center;
 }
 
+.carrito-empty {
+  display: grid;
+  justify-items: start;
+  gap: 0.65rem;
+  padding: 2rem;
+  border: 1px solid var(--color-borde);
+  border-radius: 14px;
+  background: #fff;
+}
+
+.carrito-empty h2 {
+  font-size: 1.2rem;
+}
+
+.carrito-empty p {
+  color: var(--color-neutro);
+  font-size: 0.88rem;
+}
+
+.carrito-empty a {
+  margin-top: 0.35rem;
+  color: var(--color-primario);
+  font-size: 0.88rem;
+}
+
 @media (max-width: 760px) {
   .carrito-layout {
     grid-template-columns: minmax(0, 1fr);
@@ -401,7 +463,14 @@ body {
   }
 
   .cart-item__image {
+    grid-row: span 2;
     height: 88px;
+  }
+
+  .cart-item__remove {
+    grid-column: 2;
+    justify-self: end;
+    padding: 0;
   }
 
   .cart-item__info h2 {
@@ -414,6 +483,15 @@ body {
 
   .cart-item__footer {
     align-items: flex-end;
+  }
+
+  .cart-item__quantity-control {
+    gap: 0.2rem;
+  }
+
+  .cart-item__quantity-control button {
+    width: 27px;
+    height: 27px;
   }
 
   .cart-item__subtotal strong {

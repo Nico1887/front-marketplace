@@ -4,6 +4,7 @@ import Footer from './layouts/Footer';
 import NotFound from './pages/NotFound';
 import CarritoPage from './pages/CarritoPage';
 import CheckoutPage from './pages/CheckoutPage';
+import { CarritoProvider } from './context/CarritoContext';
 
 // Placeholders temporales hasta que el equipo integre sus features
 const Placeholder = ({ title }) => <div style={{ padding: '2rem' }}><h2>{title}</h2><p>Pantalla en desarrollo...</p></div>;
@@ -11,11 +12,12 @@ const Placeholder = ({ title }) => <div style={{ padding: '2rem' }}><h2>{title}<
 function App() {
   return (
     <Router>
-      <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-        <Navbar />
-        
-        <main style={{ flex: 1, padding: '1rem' }}>
-          <Routes>
+      <CarritoProvider>
+        <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+          <Navbar />
+
+          <main style={{ flex: 1, padding: '1rem' }}>
+            <Routes>
             {/* Rutas de Enzo (Catálogo) */}
             <Route path="/" element={<Placeholder title="Home / Destacados" />} />
             <Route path="/catalogo" element={<Placeholder title="Resultados y Filtros" />} />
@@ -37,11 +39,12 @@ function App() {
 
             {/* Manejo de Error 404 */}
             <Route path="*" element={<NotFound />} />
-          </Routes>
-        </main>
+            </Routes>
+          </main>
 
-        <Footer />
-      </div>
+          <Footer />
+        </div>
+      </CarritoProvider>
     </Router>
   );
 }
