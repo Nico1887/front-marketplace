@@ -1,25 +1,36 @@
 import React from 'react'
 import ProductoCard from './ProductoCard.jsx'
-import productos from '../data/productos.json'
+import productosMock from '../../../data/productos.json'
 
 /**
- * Componente que lista los productos obtenidos desde un archivo JSON.
+ * Componente que lista los productos del catálogo.
  * Para cada producto renderiza una ProductoCard, pasándole como `children`
  * los condicionales de envío gratis y compra internacional.
  */
-function ProductoList() {
+function ProductoList({ productos = productosMock, titulo = 'Listado de Productos' }) {
+  if (!productos || productos.length === 0) {
+    return (
+      <section className="catalogo-vacio">
+        <h2>No se encontraron productos</h2>
+        <p>Probá ajustando los filtros de búsqueda o seleccionando otra categoría.</p>
+      </section>
+    )
+  }
+
   return (
     <section className="producto-list">
-      <h2 className="producto-list__titulo">Listado de Productos</h2>
+      {titulo && <h2 className="producto-list__titulo">{titulo}</h2>}
       <div className="producto-list__grid">
         {productos.map((producto) => (
           <ProductoCard
             key={producto.id}
+            id={producto.id}
             nombre={producto.nombre}
             descripcion={producto.descripcion}
             precio={producto.precio}
-            imagen={producto.imagen}
+            imagen={producto.imagenPortada || producto.imagen}
             stock={producto.stock}
+            categoria={producto.categoria || producto.categorias?.[0]}
           >
             {/* Children con condicionales */}
             {producto.envioGratis && (
@@ -41,3 +52,4 @@ function ProductoList() {
 }
 
 export default ProductoList
+

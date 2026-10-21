@@ -5,6 +5,8 @@
     "descripcion": "Notebook ultradelgada 14\" Intel Core i7, 16GB RAM, 512GB SSD. Ideal para trabajo profesional.",
     "precio": 1850000,
     "stock": 12,
+    "categoria": "Computación",
+    "categorias": ["Computación"],
     "envioGratis": true,
     "compraInternacional": false,
     "imagen": "https://via.placeholder.com/300x200?text=Notebook"
@@ -15,6 +17,8 @@
     "descripcion": "Smartphone 6.1\" chip A17 Pro, cámara triple 48MP, titanio natural. Liberado para cualquier compañía.",
     "precio": 1450000,
     "stock": 25,
+    "categoria": "Celulares",
+    "categorias": ["Celulares"],
     "envioGratis": true,
     "compraInternacional": true,
     "imagen": "https://via.placeholder.com/300x200?text=iPhone"
@@ -25,6 +29,8 @@
     "descripcion": "Auriculares Bluetooth con cancelación de ruido líder en su clase, 30hs de batería.",
     "precio": 389000,
     "stock": 40,
+    "categoria": "Audio",
+    "categorias": ["Audio"],
     "envioGratis": false,
     "compraInternacional": true,
     "imagen": "https://via.placeholder.com/300x200?text=Auriculares"
@@ -35,6 +41,8 @@
     "descripcion": "Máquina de café automática con molinillo integrado, pantalla touch y vaporizador de leche.",
     "precio": 620000,
     "stock": 8,
+    "categoria": "Electrodomésticos",
+    "categorias": ["Electrodomésticos"],
     "envioGratis": true,
     "compraInternacional": false,
     "imagen": "https://via.placeholder.com/300x200?text=Cafetera"
@@ -45,6 +53,8 @@
     "descripcion": "Televisor 55 pulgadas QLED 4K UHD, HDR10+, sistema Tizen, control por voz.",
     "precio": 980000,
     "stock": 0,
+    "categoria": "Televisores",
+    "categorias": ["Televisores"],
     "envioGratis": false,
     "compraInternacional": false,
     "imagen": "https://via.placeholder.com/300x200?text=SmartTV"
@@ -55,6 +65,8 @@
     "descripcion": "Teclado inalámbrico mecánico 75% con switches brown retroiluminados, compatible Mac/Windows.",
     "precio": 145000,
     "stock": 60,
+    "categoria": "Periféricos",
+    "categorias": ["Periféricos"],
     "envioGratis": true,
     "compraInternacional": true,
     "imagen": "https://via.placeholder.com/300x200?text=Teclado"
