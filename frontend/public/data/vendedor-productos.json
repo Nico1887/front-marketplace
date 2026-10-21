@@ -1,0 +1,87 @@
+[
+  {
+    "id": 1,
+    "nombre": "Auriculares inalambricos",
+    "descripcion": "Bluetooth 5.3, 30 horas de bateria.",
+    "precio": 89999.99,
+    "stock": 15,
+    "activo": true,
+    "nombreVendedor": "Juan",
+    "categorias": ["Electronica"],
+    "imagenes": [
+      "https://placehold.co/600x400?text=Auriculares+1",
+      "https://placehold.co/600x400?text=Auriculares+2"
+    ],
+    "disponibleParaCarrito": true
+  },
+  {
+    "id": 2,
+    "nombre": "Teclado mecanico",
+    "descripcion": "Switches rojos, layout ANSI, retroiluminado.",
+    "precio": 145000.00,
+    "stock": 0,
+    "activo": true,
+    "nombreVendedor": "Juan",
+    "categorias": ["Electronica"],
+    "imagenes": [
+      "https://placehold.co/600x400?text=Teclado"
+    ],
+    "disponibleParaCarrito": false
+  },
+  {
+    "id": 4,
+    "nombre": "Pelota de futbol N5",
+    "descripcion": "Cosida a mano, apta para cesped natural y sintetico.",
+    "precio": 38500.00,
+    "stock": 22,
+    "activo": true,
+    "nombreVendedor": "Juan",
+    "categorias": ["Deportes"],
+    "imagenes": [
+      "https://placehold.co/600x400?text=Pelota"
+    ],
+    "disponibleParaCarrito": true
+  },
+  {
+    "id": 5,
+    "nombre": "Lampara de escritorio LED",
+    "descripcion": "Brazo articulado, 3 tonos de luz y puerto USB para cargar el celular.",
+    "precio": 47999.90,
+    "stock": 6,
+    "activo": true,
+    "nombreVendedor": "Juan",
+    "categorias": ["Hogar", "Electronica"],
+    "imagenes": [
+      "https://placehold.co/600x400?text=Lampara+1",
+      "https://placehold.co/600x400?text=Lampara+2",
+      "https://placehold.co/600x400?text=Lampara+3"
+    ],
+    "disponibleParaCarrito": true
+  },
+  {
+    "id": 6,
+    "nombre": "Clean Code - Robert C. Martin",
+    "descripcion": "Edicion en espanol, tapa blanda. Usado en buen estado.",
+    "precio": 32000.00,
+    "stock": 1,
+    "activo": true,
+    "nombreVendedor": "Juan",
+    "categorias": ["Libros"],
+    "imagenes": [],
+    "disponibleParaCarrito": true
+  },
+  {
+    "id": 7,
+    "nombre": "Mouse gamer inalambrico",
+    "descripcion": "Sensor de 26000 DPI, 70 horas de bateria.",
+    "precio": 74990.00,
+    "stock": 3,
+    "activo": false,
+    "nombreVendedor": "Juan",
+    "categorias": ["Electronica"],
+    "imagenes": [
+      "https://placehold.co/600x400?text=Mouse"
+    ],
+    "disponibleParaCarrito": true
+  }
+]

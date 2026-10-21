@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1004,
+    "fecha": "2026-10-18T16:42:10",
+    "total": 1740000.00,
+    "detalles": [
+      { "productoId": 2, "cantidad": 1, "precioUnitario": 1450000.00, "subtotal": 1450000.00 },
+      { "productoId": 6, "cantidad": 2, "precioUnitario": 145000.00, "subtotal": 290000.00 }
+    ]
+  },
+  {
+    "id": 1003,
+    "fecha": "2026-09-30T11:05:47",
+    "total": 389000.00,
+    "detalles": [
+      { "productoId": 3, "cantidad": 1, "precioUnitario": 389000.00, "subtotal": 389000.00 }
+    ]
+  },
+  {
+    "id": 1002,
+    "fecha": "2026-09-02T20:18:03",
+    "total": 2470000.00,
+    "detalles": [
+      { "productoId": 1, "cantidad": 1, "precioUnitario": 1850000.00, "subtotal": 1850000.00 },
+      { "productoId": 4, "cantidad": 1, "precioUnitario": 620000.00, "subtotal": 620000.00 }
+    ]
+  },
+  {
+    "id": 1001,
+    "fecha": "2026-08-14T09:27:55",
+    "total": 923000.00,
+    "detalles": [
+      { "productoId": 6, "cantidad": 1, "precioUnitario": 145000.00, "subtotal": 145000.00 },
+      { "productoId": 3, "cantidad": 2, "precioUnitario": 389000.00, "subtotal": 778000.00 }
+    ]
+  }
+]

@@ -2,6 +2,10 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './layouts/Navbar';
 import Footer from './layouts/Footer';
 import NotFound from './pages/NotFound';
+import CarritoPage from './pages/CarritoPage';
+import CheckoutPage from './pages/CheckoutPage';
+import { HomePage, CatalogoPage, ProductoDetallePage } from './features/catalogo';
+import { CarritoProvider } from './context/CarritoContext';
 
 //Catálogo
 import HomePage from './features/catalogo/pages/HomePage';
@@ -60,11 +64,12 @@ function App() {
 
             {/* Manejo de Error 404 */}
             <Route path="*" element={<NotFound />} />
-          </Routes>
-        </main>
+            </Routes>
+          </main>
 
-        <Footer />
-      </div>
+          <Footer />
+        </div>
+      </CarritoProvider>
     </Router>
   );
 }

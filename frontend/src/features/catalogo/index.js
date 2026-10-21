@@ -1,0 +1,12 @@
+// Punto de entrada de la feature Catálogo para conectar desde el router.
+export { default as HomePage } from './pages/HomePage.jsx'
+export { default as CatalogoPage } from './pages/CatalogoPage.jsx'
+export { default as ProductoDetallePage } from './pages/ProductoDetallePage.jsx'
+export { default as CategoryCard } from './components/CategoryCard.jsx'
+export { default as ProductCard } from './components/ProductCard.jsx'
+export { default as ProductGrid } from './components/ProductGrid.jsx'
+export { default as ProductoGaleria } from './components/ProductoGaleria.jsx'
+export { default as Buscador } from './components/Buscador.jsx'
+export { default as CatalogoFiltros } from './components/CatalogoFiltros.jsx'
+export { default as ProductoCard } from './components/ProductoCard.jsx'
+export { default as ProductoList } from './components/ProductoList.jsx'
