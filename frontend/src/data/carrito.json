@@ -1,0 +1,26 @@
+{
+  "productos": [
+    {
+      "nombre": "Notebook Lenovo ThinkPad X1 Carbon",
+      "imagen": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=320&q=80",
+      "precio": 1850000,
+      "cantidad": 1,
+      "subtotal": 1850000
+    },
+    {
+      "nombre": "Auriculares Sony WH-1000XM5",
+      "imagen": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=320&q=80",
+      "precio": 389000,
+      "cantidad": 1,
+      "subtotal": 389000
+    },
+    {
+      "nombre": "Teclado Mecánico Keychron K2",
+      "imagen": "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=320&q=80",
+      "precio": 145000,
+      "cantidad": 1,
+      "subtotal": 145000
+    }
+  ],
+  "total": 2384000
+}
