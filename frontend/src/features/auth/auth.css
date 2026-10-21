@@ -127,3 +127,73 @@ form > .auth-error {
   opacity: 0.6;
   cursor: not-allowed;
 }
+
+/* Perfil */
+.auth-estado {
+  color: var(--color-neutro);
+}
+
+.perfil-tarjeta {
+  width: 100%;
+  max-width: 560px;
+  padding: 2rem;
+  background: #fff;
+  border: 1px solid var(--color-borde);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(31, 41, 55, 0.05);
+}
+
+.perfil-tarjeta__cabecera {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--color-borde);
+}
+
+.perfil-tarjeta__cabecera h1 {
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+.perfil-tarjeta__cabecera p {
+  color: var(--color-neutro);
+  font-size: 0.9rem;
+}
+
+.perfil-tarjeta__avatar {
+  display: grid;
+  width: 64px;
+  height: 64px;
+  flex: 0 0 64px;
+  place-items: center;
+  border-radius: 50%;
+  background: #eff6ff;
+  color: var(--color-primario);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.perfil-tarjeta__datos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.perfil-tarjeta__datos dt {
+  color: var(--color-neutro);
+  font-size: 0.8rem;
+}
+
+.perfil-tarjeta__datos dd {
+  font-size: 0.95rem;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.perfil-tarjeta__roles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
