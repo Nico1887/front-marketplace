@@ -4,7 +4,14 @@ import { Link } from 'react-router-dom'
 import { useCarrito } from '../context/CarritoContext'
 
 export default function CarritoPage() {
-  const { productos, subtotal, total, actualizarCantidad, eliminarProducto } = useCarrito()
+  const {
+    productos,
+    subtotal,
+    total,
+    actualizarCantidad,
+    eliminarProducto,
+    vaciarCarrito,
+  } = useCarrito()
 
   const formatearPrecio = (precio) =>
     new Intl.NumberFormat('es-AR', {
@@ -21,7 +28,14 @@ export default function CarritoPage() {
           <h1>Carrito</h1>
           <p className="carrito-intro">Revisá tu selección antes de finalizar la compra.</p>
         </div>
-        <span className="carrito-count">{productos.length} productos</span>
+        <div className="carrito-header__actions">
+          <span className="carrito-count">{productos.length} productos</span>
+          {productos.length > 0 && (
+            <button className="carrito-clear" type="button" onClick={vaciarCarrito}>
+              Vaciar carrito
+            </button>
+          )}
+        </div>
       </header>
 
       <div className="carrito-layout">

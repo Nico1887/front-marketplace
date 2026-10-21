@@ -22,10 +22,21 @@ export function CarritoProvider({ children }) {
     setProductos((actuales) => actuales.filter((producto) => producto.nombre !== nombre))
   }, [])
 
+  const vaciarCarrito = useCallback(() => {
+    setProductos([])
+  }, [])
+
   const subtotal = productos.reduce((suma, producto) => suma + producto.subtotal, 0)
   const value = useMemo(
-    () => ({ productos, subtotal, total: subtotal, actualizarCantidad, eliminarProducto }),
-    [productos, subtotal, actualizarCantidad, eliminarProducto],
+    () => ({
+      productos,
+      subtotal,
+      total: subtotal,
+      actualizarCantidad,
+      eliminarProducto,
+      vaciarCarrito,
+    }),
+    [productos, subtotal, actualizarCantidad, eliminarProducto, vaciarCarrito],
   )
 
   return <CarritoContext.Provider value={value}>{children}</CarritoContext.Provider>
